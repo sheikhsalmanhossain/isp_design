@@ -77,24 +77,27 @@
         padding: 18px 15px 0;
         pointer-events: none;
 
-        /* Animation properties */
-        transform: translateY(0);
+        /* Slide-right + fade out on hide */
+        transform: translateX(0);
         opacity: 1;
         transition:
-          transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-          opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+          transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.48s cubic-bezier(0.4, 0, 0.2, 1);
       }
+      /* Hidden: fly off to the right */
       .navbar-wrap.nav-hidden {
-        transform: translateY(-110%);
+        transform: translateX(110%);
         opacity: 0;
+        pointer-events: none;
       }
+      /* Visible: slide in from right */
       .navbar-wrap.nav-visible {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
       }
-      /* Subtle glow when navbar slides back in */
+      /* Glow flash when returning */
       .navbar-wrap.nav-appearing .navbar {
-        box-shadow: var(--shadow), 0 0 0 1px rgba(240,112,32,.18), 0 0 40px rgba(240,112,32,.12);
+        box-shadow: var(--shadow), 0 0 0 1px rgba(240,112,32,.22), 0 0 44px rgba(240,112,32,.15);
       }
 
       .navbar {
@@ -647,14 +650,34 @@
       }
       @media(max-width:650px) {
       .navbar {
-        align-items:flex-start;
-        flex-direction:column
+        align-items:center;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        padding:10px 12px;
+        gap:10px
+      }
+      .logo-sub {
+        display:none
       }
       .nav-links {
-        justify-content:flex-start
+        justify-content:flex-end;
+        gap:4px;
+        flex-wrap:nowrap
       }
+      .nav-links a {
+        font-size:.78rem;
+        padding:7px 8px
+      }
+      /* Hide text links on very small screens, keep only Login */
+      .nav-links a:not(.login-link) {
+        display:none
+      }
+      .nav-links .login-link {
+        display:inline-flex
+      }
+      /* JS will set this; fallback for CSS */
       .hero {
-        padding-top:100px
+        padding-top:90px
       }
       .features-grid,.plans-grid,.stats {
         grid-template-columns:1fr
@@ -990,9 +1013,19 @@
     </div>
 
     <script>
-      /* ===== NAVBAR SCROLL HIDE / SHOW ===== */
+      /* ===== NAVBAR SCROLL HIDE / SHOW (slide right) ===== */
       (function () {
         const wrap = document.getElementById('navbarWrap');
+        const hero = document.querySelector('.hero');
+
+        // Dynamically set hero padding so navbar never covers content
+        function setHeroPadding() {
+          const navH = wrap.offsetHeight;
+          hero.style.paddingTop = (navH + 24) + 'px';
+        }
+        setHeroPadding();
+        window.addEventListener('resize', setHeroPadding);
+
         let lastScrollY = window.scrollY;
         let ticking = false;
         let appearTimer = null;
@@ -1002,25 +1035,21 @@
           const atTop = currentY <= 10;
 
           if (atTop) {
-            // At the very top — always show
             wrap.classList.remove('nav-hidden');
             wrap.classList.add('nav-visible');
-
-            // Trigger glow flash when returning to top
             clearTimeout(appearTimer);
             wrap.classList.add('nav-appearing');
             appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
 
           } else if (currentY > lastScrollY + 6) {
-            // Scrolling DOWN — hide navbar
+            // Scrolling DOWN — fly off to the right
             wrap.classList.add('nav-hidden');
             wrap.classList.remove('nav-visible', 'nav-appearing');
 
           } else if (currentY < lastScrollY - 6) {
-            // Scrolling UP — show navbar with glow
+            // Scrolling UP — slide in from right
             wrap.classList.remove('nav-hidden');
             wrap.classList.add('nav-visible');
-
             clearTimeout(appearTimer);
             wrap.classList.add('nav-appearing');
             appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
