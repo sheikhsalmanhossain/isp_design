@@ -6,6 +6,14 @@
     <title>
       ISP Dhaka – Management & Billing Software
     </title>
+    <meta name="description" content="ISP Dhaka – Leading Internet Service Provider management and billing software for ISPs across Bangladesh. Manage subscribers, automate billing, and monitor bandwidth with ease."/>
+    <meta name="keywords" content="ISP Dhaka, isp dhaka, Dhaka ISP, ISP Bangladesh, internet service provider Dhaka, ISP billing software Bangladesh, ISP management Dhaka, broadband Dhaka, MikroTik ISP Bangladesh"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="ISP Dhaka"/>
+    <meta property="og:title" content="ISP Dhaka – Management & Billing Software"/>
+    <meta property="og:description" content="All-in-one ISP management platform for Internet Service Providers in Bangladesh. Billing, MikroTik integration, subscriber management and more."/>
+    <meta property="og:url" content="https://ispdhaka.com"/>
+    <meta property="og:type" content="website"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
     <style>
       * {
@@ -56,12 +64,42 @@
         z-index:1;
         min-height:100vh
       }
+
+      /* ===== NAVBAR WITH SCROLL ANIMATION ===== */
+      .navbar-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        padding: 18px 15px 0;
+        pointer-events: none;
+
+        /* Animation properties */
+        transform: translateY(0);
+        opacity: 1;
+        transition:
+          transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .navbar-wrap.nav-hidden {
+        transform: translateY(-110%);
+        opacity: 0;
+      }
+      .navbar-wrap.nav-visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      /* Subtle glow when navbar slides back in */
+      .navbar-wrap.nav-appearing .navbar {
+        box-shadow: var(--shadow), 0 0 0 1px rgba(240,112,32,.18), 0 0 40px rgba(240,112,32,.12);
+      }
+
       .navbar {
-        width:min(1180px,calc(100% - 30px));
-        margin:18px auto 0;
-        position:sticky;
-        top:14px;
-        z-index:50;
+        width: min(1180px, 100%);
+        pointer-events: all;
         display:flex;
         align-items:center;
         justify-content:space-between;
@@ -71,8 +109,11 @@
         border-radius:22px;
         background:rgba(15,23,42,.72);
         backdrop-filter:blur(18px);
-        box-shadow:var(--shadow)
+        box-shadow:var(--shadow);
+        transition: box-shadow 0.4s ease;
       }
+      /* ===== END NAVBAR ANIMATION ===== */
+
       .brand {
         display:flex;
         align-items:center;
@@ -139,7 +180,8 @@
         gap:30px;
         align-items:center;
         min-height:calc(100vh - 90px);
-        padding:54px 0 70px
+        padding:54px 0 70px;
+        padding-top: 110px;
       }
       .eyebrow {
         display:inline-flex;
@@ -625,782 +667,457 @@
     </style>
   </head>
   <body>
-    <canvas id="net-canvas">
-  </canvas>
-  <div class="page">
-    <nav class="navbar">
-      <a class="brand" href="#home">
-        <div class="logo-icon">
-          🌐
-        </div>
-        <div>
-          <div class="logo-name">
-            ISP
-            <span>
-              Dhaka
-            </span>
+    <canvas id="net-canvas"></canvas>
+    <div class="page">
+
+      <!-- NAVBAR wrapped in animated container -->
+      <div class="navbar-wrap" id="navbarWrap">
+        <nav class="navbar">
+          <a class="brand" href="#home">
+            <div class="logo-icon">🌐</div>
+            <div>
+              <div class="logo-name">ISP <span>Dhaka</span></div>
+              <div class="logo-sub">Management & Billing</div>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#plans">Pricing</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="#login" class="login-link">Login</a>
           </div>
-          <div class="logo-sub">
-            Management & Billing
-          </div>
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="#home">
-          Home
-        </a>
-        <a href="#features">
-          Features
-        </a>
-        <a href="#plans">
-          Pricing
-        </a>
-        <a href="#reviews">
-          Reviews
-        </a>
-        <a href="#contact">
-          Contact
-        </a>
-        <a href="#login" class="login-link">
-          Login
-        </a>
+        </nav>
       </div>
-    </nav>
-    <main>
-      <section class="hero" id="home">
-        <div>
-          <div class="eyebrow">
-            <span class="edot">
-            </span>
-            Network Operational · Bangladesh
-          </div>
-          <h1>
-            Smarter Way to
-            <span class="grad">
-              Manage & Grow
-            </span>
-            Your ISP Business
-          </h1>
-          <p>
-            All-in-one billing, subscriber management, MikroTik integration, bandwidth monitoring, payment tracking, and customer portal for Internet Service Providers.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#plans">
-              🚀 View Pricing
-            </a>
-            <a class="btn btn-soft" href="#features">
-              ⚡ Explore Features
-            </a>
-          </div>
-        </div>
-      </section>
-      <section class="stats">
-        <div class="stat">
-          <strong>
-            500+
-          </strong>
-          <span>
-            ISPs Onboard
-          </span>
-        </div>
-        <div class="stat">
-          <strong>
-            120k+
-          </strong>
-          <span>
-            Subscribers
-          </span>
-        </div>
-        <div class="stat">
-          <strong>
-            99.9%
-          </strong>
-          <span>
-            Uptime SLA
-          </span>
-        </div>
-        <div class="stat">
-          <strong>
-            24/7
-          </strong>
-          <span>
-            Support Hours
-          </span>
-        </div>
-      </section>
-      <section class="section" id="features">
-        <div class="sec-head">
-          <div class="sec-eye">
-            Core Features
-          </div>
-          <h2 class="sec-title">
-            Everything You Need to Run Your ISP
-          </h2>
-          <p class="sec-desc">
-            From subscriber onboarding to automated billing, manage every part of your ISP in one modern platform.
-          </p>
-        </div>
-        <div class="grid features-grid">
-          <div class="card">
-            <div class="icon">
-              🧾
-            </div>
-            <h3>
-              Automated Billing
-            </h3>
-            <p>
-              Auto-generate invoices, collect payments, and send smart overdue reminders.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              👥
-            </div>
-            <h3>
-              Subscriber Management
-            </h3>
-            <p>
-              Manage customer profiles, packages, connection history, and service status.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              📊
-            </div>
-            <h3>
-              Bandwidth Monitoring
-            </h3>
-            <p>
-              Real-time traffic analytics, user usage graphs, and network threshold alerts.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              📡
-            </div>
-            <h3>
-              MikroTik Integration
-            </h3>
-            <p>
-              RouterOS support with PPPoE, hotspot, provisioning, and auto disconnect.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              ⚙️
-            </div>
-            <h3>
-              Package Management
-            </h3>
-            <p>
-              Create packages with speed limits, quotas, and time-based access rules.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              🔐
-            </div>
-            <h3>
-              Role-Based Access
-            </h3>
-            <p>
-              Separate billing, admin, support, and NOC permissions for staff users.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              📱
-            </div>
-            <h3>
-              Customer Self-Portal
-            </h3>
-            <p>
-              Customers can check usage, download invoices, and pay bills online.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              📈
-            </div>
-            <h3>
-              Reports & Analytics
-            </h3>
-            <p>
-              Revenue, churn, top consumers, collections, and CSV export reports.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="plans">
-        <div class="sec-head">
-          <div class="sec-eye">
-            Transparent Pricing
-          </div>
-          <h2 class="sec-title">
-            Plans for Every ISP Size
-          </h2>
-          <p class="sec-desc">
-            Start small and scale as your subscribers grow.
 
-            Please WhatsApp For Details
-          </p>
-        </div>
-        <div class="grid plans-grid">
-          <div class="card plan-card">
-            <div class="plan-tier">
-              Starter
+      <main>
+        <section class="hero" id="home">
+          <div>
+            <div class="eyebrow">
+              <span class="edot"></span>
+              Network Operational · Bangladesh
             </div>
-            <div class="plan-price">
-              <sup>
-                ৳
-              </sup>
-              1,499
-              <small>
-                /mo
-              </small>
-            </div>
-            <ul class="plan-feats">
-              <li>
-                Admin Login Panel
-              </li>
-              <li>
-                Employee Login Panel
-              </li>
-                 Service Plans & Packages
-              </li>
-              <li>
-                Customer Management
-              </li>
-              <li>
-                Accounts Management
-              </li>
-              <li>
-                Billing & Invoice Generation
-              </li>
-              <li>
-                Payment Collection & Tracking
-              </li>
-              <li>
-                Due Date & Late Fee Management
-              </li>
-              <li>
-                Service Activation & Suspension
-              </li>
-              <li>
-                MikroTik integration
-                  (Backup,Health Dashboard,
-                   Restore Customer)
-              </li>
-              <li>
-                BTRC report generation
-              </li>
-            </ul>
-            <button class="btn btn-soft btn-login" type="button">
-              Choose Starter
-            </button>
-          </div>
-          <div class="card plan-card hot">
-            <div class="hot-badge">
-              Most Popular
-            </div>
-            <div class="plan-tier">
-              Growth
-            </div>
-            <div class="plan-price">
-              <sup>
-                ৳
-              </sup>
-              3,499
-              <small>
-                /mo
-              </small>
-            </div>
-            <ul class="plan-feats">
-              <li>
-                Admin Login Panel
-              </li>
-              <li>
-                Employee Login Panel
-              </li>
-                 Service Plans & Packages
-              </li>
-              <li>
-                Customer Management
-              </li>
-              <li>
-                Accounts Management
-              </li>
-              <li>
-                Billing & Invoice Generation
-              </li>
-              <li>
-                Payment Collection & Tracking
-              </li>
-              <li>
-                Due Date & Late Fee Management
-              </li>
-              <li>
-                Service Activation & Suspension
-              </li>
-              <li>
-                MikroTik integration
-                  (Backup,Health Dashboard,
-                   Restore Customer)
-              </li>
-              <li>
-                BTRC report generation
-              </li>
-              <li>
-                Bulk SMS System
-              </li>
-              <li>
-                Payment Gateway (Bkash)
-              </li>
-              <li>
-                Zone/Area management
-              </li>
-              <li>
-                Support and Ticketing
-              </li>
-              <li>
-                Bandwidth Reseller management
-              </li>
-              <li>
-                Customer Support
-              </li>
-            </ul>
-            <button class="btn btn-primary btn-login" type="button">
-              Choose Growth
-            </button>
-          </div>
-          <div class="card plan-card">
-            <div class="plan-tier">
-              Pro
-            </div>
-            <div class="plan-price">
-              <sup>
-                ৳
-              </sup>
-              6,999
-              <small>
-                /mo
-              </small>
-            </div>
-            <ul class="plan-feats">
-              <li>
-                Admin Login Panel
-              </li>
-              <li>
-                Employee Login Panel
-              </li>
-                 Service Plans & Packages
-              </li>
-              <li>
-                Customer Management
-              </li>
-              <li>
-                Accounts Management
-              </li>
-              <li>
-                Billing & Invoice Generation
-              </li>
-              <li>
-                Payment Collection & Tracking
-              </li>
-              <li>
-                Due Date & Late Fee Management
-              </li>
-              <li>
-                Service Activation & Suspension
-              </li>
-              <li>
-                MikroTik integration
-                  (Backup,Health Dashboard,
-                   Restore Customer)
-              </li>
-              <li>
-                BTRC report generation
-              </li>
-              <li>
-                Bulk SMS System
-              </li>
-              <li>
-                Payment Gateway (Bkash)
-              </li>
-              <li>
-                Zone/Area management
-              </li>
-              <li>
-                Support and Ticketing
-              </li>
-              <li>
-                Bandwidth Reseller management
-              </li>
-              <li>
-                MikroTik integration
-                (One Click Move Customer)
-              </li>
-              <li>
-                MAC Reseller Panel
-              </li>
-              <li>
-                Customer Map
-              </li>
-              <li>
-                Inventory Management
-              </li>
-              <li>
-                Custom branded portal
-              </li>
-              <li>
-                Unlimited subscribers
-              <li>
-                Custom branding
-              </li>
-              <li>
-                24/7 support
-              </li>
-            </ul>
-            <button class="btn btn-soft btn-login" type="button">
-              Choose Pro
-            </button>
-          </div>
-          <div class="card plan-card">
-            <div class="plan-tier">
-              Enterprise
-            </div>
-            <div class="plan-price">
-              Custom
-            </div>
-            <ul class="plan-feats">
-              <li>
-                Multi-zone management
-              </li>
-              <li>
-                On-premise deployment
-              </li>
-              <li>
-                Custom integrations
-              </li>
-              <li>
-                Dedicated manager
-              </li>
-              <li>
-                Training & onboarding
-              </li>
-            </ul>
-            <button class="btn btn-soft btn-login" type="button">
-              Contact Sales
-            </button>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="reviews">
-        <div class="sec-head">
-          <div class="sec-eye">
-            Customer Stories
-          </div>
-          <h2 class="sec-title">
-            Trusted by ISPs Across Bangladesh
-          </h2>
-        </div>
-        <div class="grid testi-grid">
-          <div class="card">
-            <div class="stars">
-              ★★★★★
-            </div>
-            <p class="t-text">
-              “ISP Dhaka transformed our billing process. What used to take days now runs automatically.”
+            <h1>
+              Smarter Way to
+              <span class="grad">Manage & Grow</span>
+              Your ISP Business
+            </h1>
+            <p>
+              All-in-one billing, subscriber management, MikroTik integration, bandwidth monitoring, payment tracking, and customer portal for Internet Service Providers.
             </p>
-            <div class="t-author">
-              <div class="t-av">
-                RA
-              </div>
-              <div>
-                <div class="t-name">
-                  Rafiqul Alam
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#plans">🚀 View Pricing</a>
+              <a class="btn btn-soft" href="#features">⚡ Explore Features</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats">
+          <div class="stat">
+            <strong>500+</strong>
+            <span>ISPs Onboard</span>
+          </div>
+          <div class="stat">
+            <strong>120k+</strong>
+            <span>Subscribers</span>
+          </div>
+          <div class="stat">
+            <strong>99.9%</strong>
+            <span>Uptime SLA</span>
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Support Hours</span>
+          </div>
+        </section>
+
+        <section class="section" id="features">
+          <div class="sec-head">
+            <div class="sec-eye">Core Features</div>
+            <h2 class="sec-title">Everything You Need to Run Your ISP</h2>
+            <p class="sec-desc">
+              From subscriber onboarding to automated billing, manage every part of your ISP in one modern platform.
+            </p>
+          </div>
+          <div class="grid features-grid">
+            <div class="card">
+              <div class="icon">🧾</div>
+              <h3>Automated Billing</h3>
+              <p>Auto-generate invoices, collect payments, and send smart overdue reminders.</p>
+            </div>
+            <div class="card">
+              <div class="icon">👥</div>
+              <h3>Subscriber Management</h3>
+              <p>Manage customer profiles, packages, connection history, and service status.</p>
+            </div>
+            <div class="card">
+              <div class="icon">📊</div>
+              <h3>Bandwidth Monitoring</h3>
+              <p>Real-time traffic analytics, user usage graphs, and network threshold alerts.</p>
+            </div>
+            <div class="card">
+              <div class="icon">📡</div>
+              <h3>MikroTik Integration</h3>
+              <p>RouterOS support with PPPoE, hotspot, provisioning, and auto disconnect.</p>
+            </div>
+            <div class="card">
+              <div class="icon">⚙️</div>
+              <h3>Package Management</h3>
+              <p>Create packages with speed limits, quotas, and time-based access rules.</p>
+            </div>
+            <div class="card">
+              <div class="icon">🔐</div>
+              <h3>Role-Based Access</h3>
+              <p>Separate billing, admin, support, and NOC permissions for staff users.</p>
+            </div>
+            <div class="card">
+              <div class="icon">📱</div>
+              <h3>Customer Self-Portal</h3>
+              <p>Customers can check usage, download invoices, and pay bills online.</p>
+            </div>
+            <div class="card">
+              <div class="icon">📈</div>
+              <h3>Reports & Analytics</h3>
+              <p>Revenue, churn, top consumers, collections, and CSV export reports.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="plans">
+          <div class="sec-head">
+            <div class="sec-eye">Transparent Pricing</div>
+            <h2 class="sec-title">Plans for Every ISP Size</h2>
+            <p class="sec-desc">
+              Start small and scale as your subscribers grow. Please WhatsApp For Details
+            </p>
+          </div>
+          <div class="grid plans-grid">
+            <div class="card plan-card">
+              <div class="plan-tier">Starter</div>
+              <div class="plan-price"><sup>৳</sup>1,499<small>/mo</small></div>
+              <ul class="plan-feats">
+                <li>Admin Login Panel</li>
+                <li>Employee Login Panel</li>
+                <li>Service Plans & Packages</li>
+                <li>Customer Management</li>
+                <li>Accounts Management</li>
+                <li>Billing & Invoice Generation</li>
+                <li>Payment Collection & Tracking</li>
+                <li>Due Date & Late Fee Management</li>
+                <li>Service Activation & Suspension</li>
+                <li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+                <li>BTRC report generation</li>
+              </ul>
+              <button class="btn btn-soft btn-login" type="button">Choose Starter</button>
+            </div>
+            <div class="card plan-card hot">
+              <div class="hot-badge">Most Popular</div>
+              <div class="plan-tier">Growth</div>
+              <div class="plan-price"><sup>৳</sup>3,499<small>/mo</small></div>
+              <ul class="plan-feats">
+                <li>Admin Login Panel</li>
+                <li>Employee Login Panel</li>
+                <li>Service Plans & Packages</li>
+                <li>Customer Management</li>
+                <li>Accounts Management</li>
+                <li>Billing & Invoice Generation</li>
+                <li>Payment Collection & Tracking</li>
+                <li>Due Date & Late Fee Management</li>
+                <li>Service Activation & Suspension</li>
+                <li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+                <li>BTRC report generation</li>
+                <li>Bulk SMS System</li>
+                <li>Payment Gateway (Bkash)</li>
+                <li>Zone/Area management</li>
+                <li>Support and Ticketing</li>
+                <li>Bandwidth Reseller management</li>
+                <li>Customer Support</li>
+              </ul>
+              <button class="btn btn-primary btn-login" type="button">Choose Growth</button>
+            </div>
+            <div class="card plan-card">
+              <div class="plan-tier">Pro</div>
+              <div class="plan-price"><sup>৳</sup>6,999<small>/mo</small></div>
+              <ul class="plan-feats">
+                <li>Admin Login Panel</li>
+                <li>Employee Login Panel</li>
+                <li>Service Plans & Packages</li>
+                <li>Customer Management</li>
+                <li>Accounts Management</li>
+                <li>Billing & Invoice Generation</li>
+                <li>Payment Collection & Tracking</li>
+                <li>Due Date & Late Fee Management</li>
+                <li>Service Activation & Suspension</li>
+                <li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+                <li>BTRC report generation</li>
+                <li>Bulk SMS System</li>
+                <li>Payment Gateway (Bkash)</li>
+                <li>Zone/Area management</li>
+                <li>Support and Ticketing</li>
+                <li>Bandwidth Reseller management</li>
+                <li>MikroTik integration (One Click Move Customer)</li>
+                <li>MAC Reseller Panel</li>
+                <li>Customer Map</li>
+                <li>Inventory Management</li>
+                <li>Custom branded portal</li>
+                <li>Unlimited subscribers</li>
+                <li>Custom branding</li>
+                <li>24/7 support</li>
+              </ul>
+              <button class="btn btn-soft btn-login" type="button">Choose Pro</button>
+            </div>
+            <div class="card plan-card">
+              <div class="plan-tier">Enterprise</div>
+              <div class="plan-price">Custom</div>
+              <ul class="plan-feats">
+                <li>Multi-zone management</li>
+                <li>On-premise deployment</li>
+                <li>Custom integrations</li>
+                <li>Dedicated manager</li>
+                <li>Training & onboarding</li>
+              </ul>
+              <button class="btn btn-soft btn-login" type="button">Contact Sales</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="reviews">
+          <div class="sec-head">
+            <div class="sec-eye">Customer Stories</div>
+            <h2 class="sec-title">Trusted by ISPs Across Bangladesh</h2>
+          </div>
+          <div class="grid testi-grid">
+            <div class="card">
+              <div class="stars">★★★★★</div>
+              <p class="t-text">"ISP Dhaka transformed our billing process. What used to take days now runs automatically."</p>
+              <div class="t-author">
+                <div class="t-av">RA</div>
+                <div>
+                  <div class="t-name">Rafiqul Alam</div>
+                  <div class="t-role">Owner, NetBD Internet</div>
                 </div>
-                <div class="t-role">
-                  Owner, NetBD Internet
+              </div>
+            </div>
+            <div class="card">
+              <div class="stars">★★★★★</div>
+              <p class="t-text">"The MikroTik integration is seamless. New subscribers get provisioned in minutes."</p>
+              <div class="t-author">
+                <div class="t-av">SK</div>
+                <div>
+                  <div class="t-name">Sabbir Khan</div>
+                  <div class="t-role">CTO, SpeedLink ISP</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="stars">★★★★☆</div>
+              <p class="t-text">"Support helped us migrate from our old system with zero downtime."</p>
+              <div class="t-author">
+                <div class="t-av">MH</div>
+                <div>
+                  <div class="t-name">Maliha Hasan</div>
+                  <div class="t-role">Manager, ConnectBD</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="stars">
-              ★★★★★
-            </div>
-            <p class="t-text">
-              “The MikroTik integration is seamless. New subscribers get provisioned in minutes.”
-            </p>
-            <div class="t-author">
-              <div class="t-av">
-                SK
-              </div>
-              <div>
-                <div class="t-name">
-                  Sabbir Khan
-                </div>
-                <div class="t-role">
-                  CTO, SpeedLink ISP
-                </div>
+        </section>
+
+        <section class="section" id="login" style="display:flex;justify-content:center;padding:60px 16px">
+          <div class="login-card" style="width:100%;max-width:460px">
+            <div class="login-title">Welcome Back 👋</div>
+            <div class="login-sub">Sign in to your ISP Dhaka account</div>
+            <div class="f-wrap">
+              <label class="f-label">Username / Email</label>
+              <div class="f-inner">
+                <span class="f-ico">👤</span>
+                <input type="text" placeholder="you@example.com"/>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="stars">
-              ★★★★☆
-            </div>
-            <p class="t-text">
-              “Support helped us migrate from our old system with zero downtime.”
-            </p>
-            <div class="t-author">
-              <div class="t-av">
-                MH
-              </div>
-              <div>
-                <div class="t-name">
-                  Maliha Hasan
-                </div>
-                <div class="t-role">
-                  Manager, ConnectBD
-                </div>
+            <div class="f-wrap">
+              <label class="f-label">Password</label>
+              <div class="f-inner">
+                <span class="f-ico">🔑</span>
+                <input type="password" placeholder="••••••••"/>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="login" style="display:flex;justify-content:center;padding:60px 16px">
-        <div class="login-card" style="width:100%;max-width:460px">
-          <div class="login-title">
-            Welcome Back 👋
-          </div>
-          <div class="login-sub">
-            Sign in to your ISP Dhaka account
-          </div>
-          <div class="f-wrap">
-            <label class="f-label">
-              Username / Email
-            </label>
-            <div class="f-inner">
-              <span class="f-ico">
-                👤
-              </span>
-              <input type="text" placeholder="you@example.com"/>
+            <div class="opt-row">
+              <label class="chk">
+                <input type="checkbox"/> Remember me
+              </label>
+              <a href="#" class="frgt">Forgot password?</a>
             </div>
-          </div>
-          <div class="f-wrap">
-            <label class="f-label">
-              Password
-            </label>
-            <div class="f-inner">
-              <span class="f-ico">
-                🔑
-              </span>
-              <input type="password" placeholder="••••••••"/>
+            <button class="btn btn-primary btn-login" type="button">Sign In →</button>
+            <div class="divider">
+              <hr/><span>New customer?</span><hr/>
             </div>
+            <button class="btn btn-reg" type="button">Create Free Account</button>
           </div>
-          <div class="opt-row">
-            <label class="chk">
-              <input type="checkbox"/>
-              Remember me
-            </label>
-            <a href="#" class="frgt">
-              Forgot password?
-            </a>
+        </section>
+
+        <section class="cta" id="contact">
+          <h2>Ready to Modernize Your ISP?</h2>
+          <p>Join ISPs already running smarter with ISP Dhaka. Setup is simple and designed for Bangladesh ISP operations.</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:0">
+            <a class="btn btn-soft" style="background:#fff;color:#c85510" href="mailto:ispdhaka24@gmail.com">Email Support</a>
+            <a class="btn btn-soft" href="tel:+8801571545439">📞 Call Sales</a>
           </div>
-          <button class="btn btn-primary btn-login" type="button">
-            Sign In →
-          </button>
-          <div class="divider">
-            <hr/>
-            <span>
-              New customer?
-            </span>
-            <hr/>
+        </section>
+
+        <section class="cta" style="background:#4745e4">
+          <h2>Ready to Start With ISP Dhaka?</h2>
+          <p>ISP Dhaka will be your 24/7 support partner. Setup is simple and designed for Bangladesh ISP operations.</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:0">
+            <a class="btn btn-soft" style="background:#fff;color:#217a05" href="mailto:support@ispdhaka.com">Request For Demo</a>
+            <a href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support"
+               class="btn btn-primary" target="_blank">💬 WhatsApp Support</a>
           </div>
-          <button class="btn btn-reg" type="button">
-            Create Free Account
-          </button>
-        </div>
-      </section>
-      <section class="cta" id="contact">
-        <h2>
-          Ready to Modernize Your ISP?
-        </h2>
-        <p>
-          Join ISPs already running smarter with ISP Dhaka. Setup is simple and designed for Bangladesh ISP operations.
-        </p>
-        <div class="hero-actions" style="justify-content:center;margin-top:0">
-          <a class="btn btn-soft" style="background:#fff;color:#c85510" href="mailto:ispdhaka24@gmail.com">
-            Email Support
-          </a>
-          <a class="btn btn-soft" href="tel:+8801571545439">
-            📞 Call Sales
-          </a>
-        </div>
-      </section>
+        </section>
 
+        <!-- Fixed WhatsApp Button -->
+        <a href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support"
+           target="_blank"
+           style="position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="white">
+            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.789L0 32l8.418-2.004A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.788-1.858l-.486-.29-5.007 1.192 1.215-4.874-.317-.5A13.234 13.234 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.361-2.215-2.759-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.067-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.325s1.428 3.856 1.627 4.122c.199.266 2.81 4.29 6.808 6.017.951.411 1.694.656 2.273.839.955.304 1.824.261 2.511.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
+          </svg>
+        </a>
+      </main>
 
-       
-      <section class="cta" id="contact" style="background:#4745e4">
-        <h2>
-          Ready to Start With ISP Dhaka?
-        </h2>
-        <p>
-          ISP Dhaka will be your 24/7 support partner. Setup is simple and designed for Bangladesh ISP operations.
-        </p>
-        <div class="hero-actions" style="justify-content:center;margin-top:0">
-          <a class="btn btn-soft" style="background:#fff;color:#217a05" href="mailto:support@ispdhaka.com">
-            Request For Demo
-          </a>
-          <a href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support" 
-             class="btn btn-primary" target="_blank">
-             💬 WhatsApp Support
-          </a>
-          <a href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support" 
-             target="_blank"
-             style="position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="white">
-              <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.789L0 32l8.418-2.004A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.788-1.858l-.486-.29-5.007 1.192 1.215-4.874-.317-.5A13.234 13.234 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.361-2.215-2.759-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.067-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.325s1.428 3.856 1.627 4.122c.199.266 2.81 4.29 6.808 6.017.951.411 1.694.656 2.273.839.955.304 1.824.261 2.511.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
-            </svg>
-          </a>
-        </div>
+      <footer class="footer">
+        © 2026 <a href="http://ispdhaka.com">ispdhaka.com</a> — ISP Management & Billing Software
+      </footer>
+    </div>
 
-        
-        <meta name="description" content="ISP Dhaka – Leading Internet Service Provider management and billing software for ISPs across Bangladesh. Manage subscribers, automate billing, and monitor bandwidth with ease."/>
-        <meta name="keywords" content="ISP Dhaka, isp dhaka, Dhaka ISP, ISP Bangladesh, internet service provider Dhaka, ISP billing software Bangladesh, ISP management Dhaka, broadband Dhaka, MikroTik ISP Bangladesh"/>
-        <meta name="robots" content="index, follow"/>
-        <meta name="author" content="ISP Dhaka"/>
+    <script>
+      /* ===== NAVBAR SCROLL HIDE / SHOW ===== */
+      (function () {
+        const wrap = document.getElementById('navbarWrap');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        let appearTimer = null;
 
-       <!-- Open Graph (shows nicely when shared on Facebook, WhatsApp etc) -->
-       <meta property="og:title" content="ISP Dhaka – Management & Billing Software"/>
-       <meta property="og:description" content="All-in-one ISP management platform for Internet Service Providers in Bangladesh. Billing, MikroTik integration, subscriber management and more."/>
-       <meta property="og:url" content="https://ispdhaka.com"/>
-       <meta property="og:type" content="website"/>
+        function handleScroll() {
+          const currentY = window.scrollY;
+          const atTop = currentY <= 10;
 
-      </section>
+          if (atTop) {
+            // At the very top — always show
+            wrap.classList.remove('nav-hidden');
+            wrap.classList.add('nav-visible');
 
+            // Trigger glow flash when returning to top
+            clearTimeout(appearTimer);
+            wrap.classList.add('nav-appearing');
+            appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
 
+          } else if (currentY > lastScrollY + 6) {
+            // Scrolling DOWN — hide navbar
+            wrap.classList.add('nav-hidden');
+            wrap.classList.remove('nav-visible', 'nav-appearing');
 
-    </main>
-    <footer class="footer">
-      © 2026
-      <a href="http://ispdhaka.com">
-        ispdhaka.com
-      </a>
-      — ISP Management & Billing Software
-    </footer>
-  </div>
-  <script>
-    const canvas=document.getElementById("net-canvas"),ctx=canvas.getContext("2d");
-    let W,H,nodes=[],edges=[],packets=[],frame=0;
-    function resize() {
-      W=canvas.width=window.innerWidth;
-      H=canvas.height=window.innerHeight;
-      buildNetwork()
-    }
-    function buildNetwork() {
-      nodes=[];
-      edges=[];
-      packets=[];
-      const count=Math.max(42,Math.floor(W*H/26000));
-      for(let i=0;
-      i<count;
-      i++) {
-        nodes.push( {
-          x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,p:Math.random()*Math.PI*2
-        }
-        )
-      }
-      for(let i=0;
-      i<nodes.length;
-      i++) {
-        let distances=[];
-        for(let j=0;
-        j<nodes.length;
-        j++) {
-          if(i!==j) {
-            const d=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);
-            distances.push([j,d])
+          } else if (currentY < lastScrollY - 6) {
+            // Scrolling UP — show navbar with glow
+            wrap.classList.remove('nav-hidden');
+            wrap.classList.add('nav-visible');
+
+            clearTimeout(appearTimer);
+            wrap.classList.add('nav-appearing');
+            appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
           }
+
+          lastScrollY = currentY;
+          ticking = false;
         }
-        distances.sort((a,b)=>a[1]-b[1]);
-        distances.slice(0,2).forEach(([j])=> {
-          const exists=edges.some(e=>(e.a===i&&e.b===j)||(e.a===j&&e.b===i));
-          if(!exists)edges.push( {
-            a:i,b:j
+
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(handleScroll);
+            ticking = true;
           }
-          )
+        }, { passive: true });
+      })();
+      /* ===== END NAVBAR SCROLL ===== */
+
+      /* ===== NETWORK CANVAS ===== */
+      const canvas = document.getElementById("net-canvas"), ctx = canvas.getContext("2d");
+      let W, H, nodes = [], edges = [], packets = [], frame = 0;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        buildNetwork();
+      }
+
+      function buildNetwork() {
+        nodes = []; edges = []; packets = [];
+        const count = Math.max(42, Math.floor(W * H / 26000));
+        for (let i = 0; i < count; i++) {
+          nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, p: Math.random() * Math.PI * 2 });
         }
-        )
+        for (let i = 0; i < nodes.length; i++) {
+          let distances = [];
+          for (let j = 0; j < nodes.length; j++) {
+            if (i !== j) {
+              const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+              distances.push([j, d]);
+            }
+          }
+          distances.sort((a, b) => a[1] - b[1]);
+          distances.slice(0, 2).forEach(([j]) => {
+            const exists = edges.some(e => (e.a === i && e.b === j) || (e.a === j && e.b === i));
+            if (!exists) edges.push({ a: i, b: j });
+          });
+        }
       }
-    }
-    function spawnPacket() {
-      if(!edges.length)return;
-      const e=edges[Math.floor(Math.random()*edges.length)];
-      packets.push( {
-        e,rev:Math.random()<.5,t:0,speed:.006+Math.random()*.01,size:2+Math.random()*2.5
+
+      function spawnPacket() {
+        if (!edges.length) return;
+        const e = edges[Math.floor(Math.random() * edges.length)];
+        packets.push({ e, rev: Math.random() < .5, t: 0, speed: .006 + Math.random() * .01, size: 2 + Math.random() * 2.5 });
       }
-      )
-    }
-    function draw() {
-      ctx.clearRect(0,0,W,H);
-      nodes.forEach(n=> {
-        n.x+=n.vx;
-        n.y+=n.vy;
-        if(n.x<0||n.x>W)n.vx*=-1;
-        if(n.y<0||n.y>H)n.vy*=-1;
-        n.x+=Math.sin(frame*.004+n.p)*.08;
-        n.y+=Math.cos(frame*.004+n.p)*.08
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach(n => {
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > W) n.vx *= -1;
+          if (n.y < 0 || n.y > H) n.vy *= -1;
+          n.x += Math.sin(frame * .004 + n.p) * .08;
+          n.y += Math.cos(frame * .004 + n.p) * .08;
+        });
+        edges.forEach(e => {
+          const a = nodes[e.a], b = nodes[e.b], d = Math.hypot(a.x - b.x, a.y - b.y),
+            alpha = Math.max(.08, Math.min(.32, 1 - d / 360));
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(240,112,32,${alpha})`; ctx.lineWidth = 1.15; ctx.stroke();
+        });
+        packets = packets.filter(p => {
+          p.t += p.speed;
+          if (p.t >= 1) return false;
+          const a = nodes[p.rev ? p.e.b : p.e.a], b = nodes[p.rev ? p.e.a : p.e.b],
+            x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t,
+            g = ctx.createRadialGradient(x, y, 0, x, y, p.size * 5);
+          g.addColorStop(0, "rgba(255,147,64,.9)"); g.addColorStop(1, "rgba(255,147,64,0)");
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, p.size * 5, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(x, y, p.size, 0, Math.PI * 2); ctx.fill();
+          return true;
+        });
+        nodes.forEach(n => {
+          ctx.beginPath(); ctx.arc(n.x, n.y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255,255,255,.74)"; ctx.fill();
+          ctx.beginPath(); ctx.arc(n.x, n.y, 6, 0, Math.PI * 2);
+          ctx.strokeStyle = "rgba(240,112,32,.24)"; ctx.lineWidth = 1; ctx.stroke();
+        });
+        if (frame % 8 === 0 && packets.length < 85) spawnPacket();
+        frame++;
+        requestAnimationFrame(draw);
       }
-      );
-      edges.forEach(e=> {
-        const a=nodes[e.a],b=nodes[e.b],d=Math.hypot(a.x-b.x,a.y-b.y),alpha=Math.max(.08,Math.min(.32,1-d/360));
-        ctx.beginPath();
-        ctx.moveTo(a.x,a.y);
-        ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle=`rgba(240,112,32,${alpha})`;
-        ctx.lineWidth=1.15;
-        ctx.stroke()
-      }
-      );
-      packets=packets.filter(p=> {
-        p.t+=p.speed;
-        if(p.t>=1)return false;
-        const a=nodes[p.rev?p.e.b:p.e.a],b=nodes[p.rev?p.e.a:p.e.b],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t,g=ctx.createRadialGradient(x,y,0,x,y,p.size*5);
-        g.addColorStop(0,"rgba(255,147,64,.9)");
-        g.addColorStop(1,"rgba(255,147,64,0)");
-        ctx.fillStyle=g;
-        ctx.beginPath();
-        ctx.arc(x,y,p.size*5,0,Math.PI*2);
-        ctx.fill();
-        ctx.fillStyle="#fff";
-        ctx.beginPath();
-        ctx.arc(x,y,p.size,0,Math.PI*2);
-        ctx.fill();
-        return true
-      }
-      );
-      nodes.forEach(n=> {
-        ctx.beginPath();
-        ctx.arc(n.x,n.y,2.5,0,Math.PI*2);
-        ctx.fillStyle="rgba(255,255,255,.74)";
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(n.x,n.y,6,0,Math.PI*2);
-        ctx.strokeStyle="rgba(240,112,32,.24)";
-        ctx.lineWidth=1;
-        ctx.stroke()
-      }
-      );
-      if(frame%8===0&&packets.length<85)spawnPacket();
-      frame++;
-      requestAnimationFrame(draw)
-    }
-    window.addEventListener("resize",resize);
-    resize();
-    draw();
-  </script>
-</body>
+
+      window.addEventListener("resize", resize);
+      resize();
+      draw();
+    </script>
+  </body>
 </html>
