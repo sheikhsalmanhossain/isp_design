@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html lang="en-BD">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ISP Billing Software Bangladesh | Best ISP Management Software | MikroTik Billing | ISP Dhaka</title>
+<meta content="ISP Dhaka is the #1 ISP Billing &amp; Management Software in Bangladesh. MikroTik integration, PPPoE automation, bKash/Nagad payment, bandwidth monitoring, subscriber management, SMS billing &amp; BTRC report for all Bangladesh ISPs." name="description"/>
+<meta content="ISP billing software Bangladesh, ISP management software Bangladesh, ISP software BD, broadband billing software, MikroTik billing software, PPPoE billing software, broadband management software, ISP automation software, ISP CRM Bangladesh, bKash ISP billing, Nagad billing software, ISP software Dhaka, broadband software Bangladesh, internet billing software, MikroTik hotspot billing, MikroTik radius server, ISP customer management, broadband automation software, broadband billing Dhaka, Bangladesh ISP software, internet service provider billing, ISP billing system, ISP management system Bangladesh, cable operator billing software, ISP software price Bangladesh, ইন্টারনেট সার্ভিস প্রোভাইডার সফটওয়্যার, আইএসপি বিলিং সফটওয়্যার" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="ISP Dhaka" name="author"/>
+<meta content="ISP Dhaka – #1 ISP Billing &amp; Management Software Bangladesh" property="og:title"/>
+<meta content="Best ISP billing software in Bangladesh with MikroTik integration, PPPoE automation, bKash payment, SMS billing, subscriber management, bandwidth monitoring &amp; BTRC report for ISPs." property="og:description"/>
+<meta content="https://ispdhaka.com" property="og:url"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Nunito:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+      * {
+        box-sizing:border-box;
+        margin:0;
+        padding:0
+      }
+      :root {
+        --surface:rgba(17,24,39,.76);
+        --border:rgba(255,255,255,.11);
+        --borderOr:rgba(240,112,32,.36);
+        --or:#f07020;
+        --or2:#ff9340;
+        --or-dk:#c85510;
+        --text:#f8fafc;
+        --text2:#cbd5e1;
+        --muted:#94a3b8;
+        --green:#22c55e;
+        --shadow:0 28px 70px rgba(0,0,0,.28)
+      }
+      html {
+        scroll-behavior:smooth
+      }
+      body {
+        font-family:'Nunito',sans-serif;
+        background:radial-gradient(circle at 18% 12%,rgba(240,112,32,.22),transparent 35%),radial-gradient(circle at 82% 20%,rgba(255,147,64,.13),transparent 30%),linear-gradient(135deg,#0f172a,#111827 55%,#15111f);
+        color:var(--text);
+        min-height:100vh;
+        overflow-x:hidden
+      }
+      h1,h2,h3 {
+        font-family:'Outfit',sans-serif;
+        font-weight:900
+      }
+      p {
+        color:var(--text2);
+        line-height:1.75
+      }
+      #net-canvas {
+        position:fixed;
+        inset:0;
+        z-index:0;
+        pointer-events:none;
+        opacity:.85
+      }
+      .page {
+        position:relative;
+        z-index:1;
+        min-height:100vh
+      }
+
+      /* ===== NAVBAR WITH SCROLL ANIMATION ===== */
+      .navbar-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        padding: 18px 15px 0;
+        pointer-events: none;
+
+        /* Slide-right + fade out on hide */
+        transform: translateX(0);
+        opacity: 1;
+        transition:
+          transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.48s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      /* Hidden: fly off to the right */
+      .navbar-wrap.nav-hidden {
+        transform: translateX(110%);
+        opacity: 0;
+        pointer-events: none;
+      }
+      /* Visible: slide in from right */
+      .navbar-wrap.nav-visible {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      /* Glow flash when returning */
+      .navbar-wrap.nav-appearing .navbar {
+        box-shadow: var(--shadow), 0 0 0 1px rgba(240,112,32,.22), 0 0 44px rgba(240,112,32,.15);
+      }
+
+      .navbar {
+        width: min(1180px, 100%);
+        pointer-events: all;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:16px;
+        padding:14px 16px;
+        border:1px solid var(--border);
+        border-radius:22px;
+        background:rgba(15,23,42,.72);
+        backdrop-filter:blur(18px);
+        box-shadow:var(--shadow);
+        transition: box-shadow 0.4s ease;
+      }
+      /* ===== END NAVBAR ANIMATION ===== */
+
+      .brand {
+        display:flex;
+        align-items:center;
+        gap:11px;
+        text-decoration:none;
+        color:var(--text)
+      }
+      .logo-icon {
+        width:44px;
+        height:44px;
+        border-radius:15px;
+        background:linear-gradient(135deg,var(--or-dk),var(--or),var(--or2));
+        display:grid;
+        place-items:center;
+        font-size:21px;
+        box-shadow:0 14px 32px rgba(240,112,32,.32)
+      }
+      .logo-name {
+        font-family:'Outfit',sans-serif;
+        font-size:1.18rem;
+        font-weight:900;
+        line-height:1
+      }
+      .logo-name span {
+        color:var(--or2)
+      }
+      .logo-sub {
+        font-size:.68rem;
+        color:var(--muted);
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        margin-top:3px
+      }
+      .nav-links {
+        display:flex;
+        align-items:center;
+        gap:8px;
+        flex-wrap:wrap;
+        justify-content:flex-end
+      }
+      .nav-links a {
+        color:var(--text2);
+        text-decoration:none;
+        font-size:.9rem;
+        font-weight:700;
+        padding:10px 12px;
+        border-radius:13px;
+        transition:.2s
+      }
+      .nav-links a:hover {
+        background:rgba(240,112,32,.12);
+        color:var(--or2)
+      }
+      .nav-links .login-link {
+        background:linear-gradient(135deg,var(--or-dk),var(--or),var(--or2));
+        color:white;
+        box-shadow:0 12px 28px rgba(240,112,32,.28)
+      }
+      .hero {
+        width:min(1180px,calc(100% - 30px));
+        margin:auto;
+        display:grid;
+        grid-template-columns:1.1fr .9fr;
+        gap:30px;
+        align-items:center;
+        min-height:calc(100vh - 90px);
+        padding:110px 0 70px;
+      }
+      .eyebrow {
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        background:rgba(240,112,32,.12);
+        border:1px solid var(--borderOr);
+        border-radius:999px;
+        padding:8px 14px;
+        color:#fed7aa;
+        font-size:.75rem;
+        font-weight:800;
+        text-transform:uppercase;
+        letter-spacing:.08em;
+        margin-bottom:20px
+      }
+      .edot {
+        width:8px;
+        height:8px;
+        border-radius:50%;
+        background:var(--green);
+        box-shadow:0 0 0 6px rgba(34,197,94,.12);
+        animation:blink 1.7s infinite
+      }
+      @keyframes blink {
+      0%,100% {
+        opacity:1
+      }
+      50% {
+        opacity:.35
+      }
+      }
+      .hero h1 {
+        font-size:clamp(2.35rem,5.5vw,4.8rem);
+        line-height:1.02;
+        letter-spacing:-.045em;
+        max-width:760px
+      }
+      .grad {
+        background:linear-gradient(95deg,#fff,var(--or2),var(--or));
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        background-clip:text
+      }
+      .hero p {
+        font-size:1.08rem;
+        max-width:620px;
+        margin:22px 0 0
+      }
+      .hero-actions {
+        display:flex;
+        gap:13px;
+        flex-wrap:wrap;
+        margin-top:30px
+      }
+      .btn {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        border:0;
+        border-radius:14px;
+        padding:13px 22px;
+        font-family:'Outfit',sans-serif;
+        font-weight:800;
+        font-size:.95rem;
+        text-decoration:none;
+        cursor:pointer;
+        transition:.2s
+      }
+      .btn-primary {
+        background:linear-gradient(135deg,var(--or-dk),var(--or),var(--or2));
+        color:#fff;
+        box-shadow:0 18px 36px rgba(240,112,32,.28)
+      }
+      .btn-primary:hover {
+        transform:translateY(-3px);
+        box-shadow:0 24px 50px rgba(240,112,32,.4)
+      }
+      .btn-soft {
+        background:rgba(255,255,255,.08);
+        border:1px solid var(--border);
+        color:var(--text)
+      }
+      .btn-soft:hover {
+        background:rgba(255,255,255,.12);
+        border-color:var(--borderOr)
+      }
+      .login-card {
+        background:linear-gradient(180deg,rgba(17,24,39,.86),rgba(17,24,39,.66));
+        border:1px solid var(--border);
+        border-radius:28px;
+        padding:26px;
+        box-shadow:var(--shadow);
+        backdrop-filter:blur(20px);
+        position:relative;
+        overflow:hidden
+      }
+      .login-card:before {
+        content:"";
+        position:absolute;
+        left:0;
+        right:0;
+        top:0;
+        height:4px;
+        background:linear-gradient(90deg,var(--or-dk),var(--or),var(--or2))
+      }
+      .login-title {
+        font-size:1.35rem;
+        margin-bottom:4px
+      }
+      .login-sub {
+        font-size:.86rem;
+        color:var(--muted);
+        margin-bottom:20px
+      }
+      .f-wrap {
+        margin-bottom:14px
+      }
+      .f-label {
+        display:block;
+        font-size:.72rem;
+        color:var(--muted);
+        font-weight:800;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        margin-bottom:7px
+      }
+      .f-inner {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        background:rgba(255,255,255,.07);
+        border:1px solid var(--border);
+        border-radius:13px;
+        padding:0 12px;
+        transition:.2s
+      }
+      .f-inner:focus-within {
+        border-color:var(--or);
+        box-shadow:0 0 0 4px rgba(240,112,32,.12)
+      }
+      .f-ico {
+        font-size:16px;
+        line-height:1;
+        position:static;
+        transform:none;
+        pointer-events:none;
+        flex:0 0 auto
+      }
+      .f-inner input {
+        width:100%;
+        min-width:0;
+        background:transparent;
+        border:0;
+        outline:0;
+        padding:13px 0;
+        color:var(--text);
+        font-family:'Nunito',sans-serif;
+        font-size:.95rem
+      }
+      .f-inner input::placeholder {
+        color:#728095
+      }
+      .opt-row {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        margin:4px 0 18px
+      }
+      .chk {
+        display:flex;
+        align-items:center;
+        gap:7px;
+        font-size:.82rem;
+        color:var(--text2)
+      }
+      .chk input {
+        accent-color:var(--or)
+      }
+      .frgt {
+        font-size:.82rem;
+        color:var(--or2);
+        text-decoration:none;
+        font-weight:700
+      }
+      .divider {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin:16px 0
+      }
+      .divider hr {
+        flex:1;
+        border:0;
+        border-top:1px solid var(--border)
+      }
+      .divider span {
+        font-size:.75rem;
+        color:var(--muted)
+      }
+      .btn-login,.btn-reg {
+        width:100%
+      }
+      .btn-reg {
+        background:rgba(255,255,255,.06);
+        border:1px solid var(--borderOr);
+        color:#fed7aa
+      }
+      .stats {
+        width:min(1180px,calc(100% - 30px));
+        margin:-32px auto 70px;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:14px
+      }
+      .stat {
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:20px;
+        padding:22px;
+        backdrop-filter:blur(18px)
+      }
+      .stat strong {
+        display:block;
+        font-family:'Outfit',sans-serif;
+        font-size:2rem;
+        color:var(--or2);
+        line-height:1
+      }
+      .stat span {
+        font-size:.78rem;
+        color:var(--muted);
+        text-transform:uppercase;
+        letter-spacing:.07em;
+        font-weight:800
+      }
+      .section {
+        width:min(1180px,calc(100% - 30px));
+        margin:auto;
+        padding:28px 0 74px
+      }
+      .sec-head {
+        max-width:720px;
+        margin-bottom:28px
+      }
+      .sec-eye {
+        font-size:.75rem;
+        color:var(--or2);
+        font-weight:900;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        margin-bottom:8px
+      }
+      .sec-title {
+        font-size:clamp(1.8rem,3.4vw,3rem);
+        letter-spacing:-.03em
+      }
+      .sec-desc {
+        margin-top:10px;
+        max-width:640px
+      }
+      .grid {
+        display:grid;
+        gap:16px
+      }
+      .features-grid {
+        grid-template-columns:repeat(4,1fr)
+      }
+      .card {
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:22px;
+        padding:24px;
+        backdrop-filter:blur(18px);
+        box-shadow:0 18px 48px rgba(0,0,0,.14);
+        transition:.22s
+      }
+      .card:hover {
+        transform:translateY(-5px);
+        border-color:var(--borderOr);
+        box-shadow:0 26px 60px rgba(0,0,0,.25)
+      }
+      .icon {
+        width:48px;
+        height:48px;
+        border-radius:16px;
+        display:grid;
+        place-items:center;
+        background:rgba(240,112,32,.13);
+        border:1px solid rgba(240,112,32,.24);
+        font-size:22px;
+        margin-bottom:15px
+      }
+      .card h3 {
+        font-size:1.05rem;
+        margin-bottom:8px
+      }
+      .card p {
+        font-size:.9rem;
+        color:var(--muted)
+      }
+      .plans-grid {
+        grid-template-columns:repeat(4,1fr)
+      }
+      .plan-card {
+        position:relative
+      }
+      .plan-card.hot {
+        border:2px solid var(--or);
+        box-shadow:0 24px 70px rgba(240,112,32,.2)
+      }
+      .hot-badge {
+        position:absolute;
+        top:-12px;
+        left:50%;
+        transform:translateX(-50%);
+        background:linear-gradient(135deg,var(--or),var(--or2));
+        color:#fff;
+        border-radius:999px;
+        padding:5px 13px;
+        font-size:.66rem;
+        font-weight:900;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        font-family:'Outfit',sans-serif
+      }
+      .plan-tier {
+        font-size:.75rem;
+        color:var(--muted);
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:.1em;
+        margin-bottom:8px
+      }
+      .plan-price {
+        font-family:'Outfit',sans-serif;
+        font-size:2rem;
+        font-weight:900;
+        margin-bottom:16px
+      }
+      .plan-price sup {
+        font-size:1rem
+      }
+      .plan-price small {
+        font-size:.75rem;
+        color:var(--muted);
+        font-family:'Nunito',sans-serif;
+        font-weight:600
+      }
+      .plan-feats {
+        list-style:none;
+        display:flex;
+        flex-direction:column;
+        gap:9px;
+        margin:0 0 20px
+      }
+      .plan-feats li {
+        font-size:.88rem;
+        color:var(--text2)
+      }
+      .plan-feats li:before {
+        content:"✓";
+        color:var(--or2);
+        font-weight:900;
+        margin-right:8px
+      }
+      .testi-grid {
+        grid-template-columns:repeat(3,1fr)
+      }
+      .stars {
+        color:var(--or2);
+        letter-spacing:2px;
+        margin-bottom:12px
+      }
+      .t-text {
+        font-style:italic;
+        margin-bottom:18px
+      }
+      .t-author {
+        display:flex;
+        align-items:center;
+        gap:10px
+      }
+      .t-av {
+        width:38px;
+        height:38px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        background:linear-gradient(135deg,var(--or),var(--or2));
+        font-family:'Outfit',sans-serif;
+        font-weight:900
+      }
+      .t-name {
+        font-family:'Outfit',sans-serif;
+        font-weight:800
+      }
+      .t-role {
+        font-size:.75rem;
+        color:var(--muted)
+      }
+      .cta {
+        width:min(1180px,calc(100% - 30px));
+        margin:0 auto 70px;
+        background:linear-gradient(135deg,var(--or-dk),var(--or),var(--or2));
+        border-radius:28px;
+        padding:52px 32px;
+        text-align:center;
+        box-shadow:0 30px 70px rgba(240,112,32,.22);
+        overflow:hidden;
+        position:relative
+      }
+      .cta:before {
+        content:"";
+        position:absolute;
+        inset:-40%;
+        background:radial-gradient(circle,rgba(255,255,255,.18),transparent 52%);
+        animation:spin 16s linear infinite
+      }
+      @keyframes spin {
+      to {
+        transform:rotate(360deg)
+      }
+      }
+      .cta>* {
+        position:relative
+      }
+      .cta h2 {
+        font-size:clamp(1.8rem,3.2vw,2.8rem)
+      }
+      .cta p {
+        color:rgba(255,255,255,.84);
+        margin:10px auto 24px;
+        max-width:620px
+      }
+      .footer {
+        border-top:1px solid var(--border);
+        background:rgba(15,23,42,.72);
+        padding:25px 16px;
+        text-align:center;
+        color:var(--muted)
+      }
+      .footer a {
+        color:var(--or2);
+        text-decoration:none
+      }
+      @media(max-width:980px) {
+      .hero {
+        grid-template-columns:1fr;
+        min-height:auto
+      }
+      .features-grid,.plans-grid {
+        grid-template-columns:repeat(2,1fr)
+      }
+      .testi-grid {
+        grid-template-columns:1fr
+      }
+      .stats {
+        grid-template-columns:repeat(2,1fr);
+        margin-top:0
+      }
+      #blog .grid {
+        grid-template-columns:repeat(2,1fr) !important
+      }
+      }
+      @media(max-width:650px) {
+      .navbar {
+        align-items:center;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        padding:10px 12px;
+        gap:10px
+      }
+      .logo-sub {
+        display:none
+      }
+      .nav-links {
+        justify-content:flex-end;
+        gap:4px;
+        flex-wrap:nowrap
+      }
+      .nav-links a {
+        font-size:.78rem;
+        padding:7px 8px
+      }
+      /* Hide text links on very small screens, keep only Login */
+      .nav-links a:not(.login-link) {
+        display:none
+      }
+      .nav-links .login-link {
+        display:inline-flex
+      }
+      /* JS will set this; fallback for CSS */
+      .hero {
+        padding-top:90px
+      }
+      .features-grid,.plans-grid,.stats {
+        grid-template-columns:1fr
+      }
+      #blog .grid {
+        grid-template-columns:1fr !important
+      }
+      .hero-actions .btn {
+        width:100%
+      }
+      }
+    </style>
+<link href="https://ispdhaka.com/" rel="canonical"/><meta content="https://ispdhaka.com/preview.png" property="og:image"/><meta content="ISP Dhaka" property="og:site_name"/><meta content="summary_large_image" name="twitter:card"/><meta content="ISP Billing Software Bangladesh | ISP Dhaka" name="twitter:title"/><meta content="MikroTik ISP billing, broadband automation, bKash payment integration and customer management software for Bangladesh ISPs." name="twitter:description"/><meta content="https://ispdhaka.com/preview.png" name="twitter:image"/><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ISP Dhaka — ISP Billing & Management Software Bangladesh",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://ispdhaka.com",
+  "description": "Best ISP Billing and Management Software for Bangladesh ISPs. MikroTik integration, PPPoE automation, bKash/Nagad payment, SMS billing, subscriber management, bandwidth monitoring, and BTRC report generation.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "BDT",
+    "price": "1499",
+    "priceValidUntil": "2026-12-31"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Bangladesh"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "500"
+  },
+  "keywords": "ISP billing software Bangladesh, ISP management software, MikroTik billing, broadband billing software BD"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ISP Dhaka",
+  "description": "ISP Billing and Management Software provider for Internet Service Providers in Bangladesh.",
+  "url": "https://ispdhaka.com",
+  "telephone": "+8801571545439",
+  "email": "support@ispdhaka.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dhaka",
+    "addressCountry": "BD"
+  },
+  "areaServed": "Bangladesh",
+  "sameAs": ["https://ispdhaka.com"]
+}
+</script>
+<body>
+<canvas id="net-canvas"></canvas>
+<div class="page">
+<!-- NAVBAR wrapped in animated container -->
+<div class="navbar-wrap" id="navbarWrap">
+<nav class="navbar">
+<a class="brand" href="#home">
+<div class="logo-icon">🌐</div>
+<div>
+<div class="logo-name">ISP <span>Dhaka</span></div>
+<div class="logo-sub">Management &amp; Billing</div>
+</div>
+</a>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#plans">Pricing</a>
+<a href="#reviews">Reviews</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+<a class="login-link" href="#login">Login</a>
+</div>
+</nav>
+</div>
+<main>
+<section class="hero" id="home">
+<div>
+<div class="eyebrow">
+<span class="edot"></span>
+              #1 ISP Software · Bangladesh 🇧🇩
+            </div>
+<h1>
+              Best ISP Billing &amp; Management
+              <span class="grad">Software in Bangladesh</span>
+            </h1>
+<p>
+              Complete ISP billing software for Bangladesh — MikroTik integration, PPPoE &amp; hotspot automation, bKash/Nagad payment collection, subscriber management, bandwidth monitoring, SMS billing, and BTRC report generation. Trusted by 500+ ISPs across Bangladesh.
+            </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#plans">🚀 View Pricing</a>
+<a class="btn btn-soft" href="#features">⚡ Explore Features</a>
+</div>
+</div>
+</section>
+<section class="stats">
+<div class="stat">
+<strong>500+</strong>
+<span>ISPs Onboard</span>
+</div>
+<div class="stat">
+<strong>120k+</strong>
+<span>Subscribers</span>
+</div>
+<div class="stat">
+<strong>99.9%</strong>
+<span>Uptime SLA</span>
+</div>
+<div class="stat">
+<strong>24/7</strong>
+<span>Support Hours</span>
+</div>
+</section>
+<section class="section" id="features">
+<div class="sec-head">
+<div class="sec-eye">ISP Software Features — Bangladesh</div>
+<h2 class="sec-title">Complete ISP Billing &amp; Management Features</h2>
+<p class="sec-desc">
+              Bangladesh's most complete ISP management software — from MikroTik billing automation to subscriber onboarding, bKash payment collection, and BTRC reporting. Everything an ISP needs in one platform.
+            </p>
+</div>
+<div class="grid features-grid">
+<div class="card">
+<div class="icon">🧾</div>
+<h3>ISP Automated Billing</h3>
+<p>Auto-generate invoices, collect bKash/Nagad payments, and send smart overdue SMS reminders to subscribers.</p>
+</div>
+<div class="card">
+<div class="icon">👥</div>
+<h3>ISP Subscriber Management</h3>
+<p>Manage customer profiles, internet packages, connection history, and service status for all subscribers.</p>
+</div>
+<div class="card">
+<div class="icon">📊</div>
+<h3>Bandwidth Monitoring</h3>
+<p>Real-time traffic analytics, per-user bandwidth graphs, and network threshold alerts for your ISP network.</p>
+</div>
+<div class="card">
+<div class="icon">📡</div>
+<h3>MikroTik Billing Integration</h3>
+<p>Full RouterOS support — PPPoE, hotspot billing, radius server, auto provisioning, and auto disconnect.</p>
+</div>
+<div class="card">
+<div class="icon">⚙️</div>
+<h3>ISP Package Management</h3>
+<p>Create broadband packages with speed limits, data quotas, FUP rules, and time-based access policies.</p>
+</div>
+<div class="card">
+<div class="icon">🔐</div>
+<h3>Role-Based Staff Access</h3>
+<p>Separate billing, admin, support, and NOC permissions — full control over ISP staff user roles.</p>
+</div>
+<div class="card">
+<div class="icon">📱</div>
+<h3>Customer Self-Service Portal</h3>
+<p>ISP customers can check usage, download invoices, renew packages, and pay bills online via bKash/Nagad.</p>
+</div>
+<div class="card">
+<div class="icon">📈</div>
+<h3>ISP Reports &amp; Analytics</h3>
+<p>Revenue, churn, top consumers, collection reports, BTRC compliance reports, and CSV export.</p>
+</div>
+</div>
+</section>
+<section class="section" id="plans">
+<div class="sec-head">
+<div class="sec-eye">ISP Software Pricing — Bangladesh</div>
+<h2 class="sec-title">ISP Billing Software Plans for Every ISP</h2>
+<p class="sec-desc">
+              Affordable ISP management software pricing for Bangladesh ISPs — from small broadband operators to large ISPs. WhatsApp us for details.
+            </p>
+</div>
+<div class="grid plans-grid">
+<div class="card plan-card">
+<div class="plan-tier">Starter</div>
+<div class="plan-price"><sup>৳</sup>1,499<small>/mo</small></div>
+<ul class="plan-feats">
+<li>Admin Login Panel</li>
+<li>Employee Login Panel</li>
+<li>Service Plans &amp; Packages</li>
+<li>Customer Management</li>
+<li>Accounts Management</li>
+<li>Billing &amp; Invoice Generation</li>
+<li>Payment Collection &amp; Tracking</li>
+<li>Due Date &amp; Late Fee Management</li>
+<li>Service Activation &amp; Suspension</li>
+<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+<li>BTRC report generation</li>
+</ul>
+<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Starter%20Plan%20(%E2%9C%B11%2C499%2Fmo).%20Please%20share%20details." target="_blank">Choose Starter</a>
+</div>
+<div class="card plan-card hot">
+<div class="hot-badge">Most Popular</div>
+<div class="plan-tier">Growth</div>
+<div class="plan-price"><sup>৳</sup>3,499<small>/mo</small></div>
+<ul class="plan-feats">
+<li>Admin Login Panel</li>
+<li>Employee Login Panel</li>
+<li>Service Plans &amp; Packages</li>
+<li>Customer Management</li>
+<li>Accounts Management</li>
+<li>Billing &amp; Invoice Generation</li>
+<li>Payment Collection &amp; Tracking</li>
+<li>Due Date &amp; Late Fee Management</li>
+<li>Service Activation &amp; Suspension</li>
+<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+<li>BTRC report generation</li>
+<li>Bulk SMS System</li>
+<li>Payment Gateway (Bkash)</li>
+<li>Zone/Area management</li>
+<li>Support and Ticketing</li>
+<li>Bandwidth Reseller management</li>
+<li>Customer Support</li>
+</ul>
+<a class="btn btn-primary btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Growth%20Plan%20(%E2%9C%B13%2C499%2Fmo).%20Please%20share%20details." target="_blank">Choose Growth</a>
+</div>
+<div class="card plan-card">
+<div class="plan-tier">Pro</div>
+<div class="plan-price"><sup>৳</sup>4,999<small>/mo</small></div>
+<ul class="plan-feats">
+<li>Admin Login Panel</li>
+<li>Employee Login Panel</li>
+<li>Service Plans &amp; Packages</li>
+<li>Customer Management</li>
+<li>Accounts Management</li>
+<li>Billing &amp; Invoice Generation</li>
+<li>Payment Collection &amp; Tracking</li>
+<li>Due Date &amp; Late Fee Management</li>
+<li>Service Activation &amp; Suspension</li>
+<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
+<li>BTRC report generation</li>
+<li>Bulk SMS System</li>
+<li>Payment Gateway (Bkash)</li>
+<li>Zone/Area management</li>
+<li>Support and Ticketing</li>
+<li>Bandwidth Reseller management</li>
+<li>MikroTik integration (One Click Move Customer)</li>
+<li>MAC Reseller Panel</li>
+<li>Customer Map</li>
+<li>Inventory Management</li>
+<li>Custom branded portal</li>
+<li>Unlimited subscribers</li>
+<li>Custom branding</li>
+<li>24/7 support</li>
+</ul>
+<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Pro%20Plan%20(%E2%9C%B16%2C999%2Fmo).%20Please%20share%20details." target="_blank">Choose Pro</a>
+</div>
+<div class="card plan-card">
+<div class="plan-tier">Enterprise</div>
+<div class="plan-price">Custom</div>
+<ul class="plan-feats">
+<li>Multi-zone management</li>
+<li>On-premise deployment</li>
+<li>Custom integrations</li>
+<li>Dedicated manager</li>
+<li>Training &amp; onboarding</li>
+</ul>
+<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Enterprise%20Plan%20(Custom%20Pricing).%20Please%20contact%20me%20with%20details." target="_blank">Contact Sales</a>
+</div>
+</div>
+</section>
+<section class="section" id="reviews">
+<div class="sec-head">
+<div class="sec-eye">ISP Owner Reviews — Bangladesh</div>
+<h2 class="sec-title">Trusted by 500+ ISPs Across Bangladesh</h2>
+</div>
+<div class="grid testi-grid">
+<div class="card">
+<div class="stars">★★★★★</div>
+<p class="t-text">"ISP Dhaka's billing software transformed our ISP business. What used to take days now runs automatically — bKash collection, SMS reminders, everything."</p>
+<div class="t-author">
+<div class="t-av">RA</div>
+<div>
+<div class="t-name">Rafiqul Alam</div>
+<div class="t-role">Owner, NetBD Internet — Dhaka</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="stars">★★★★★</div>
+<p class="t-text">"The MikroTik billing integration is seamless. New ISP subscribers get provisioned in minutes. Best ISP software in Bangladesh by far."</p>
+<div class="t-author">
+<div class="t-av">SK</div>
+<div>
+<div class="t-name">Sabbir Khan</div>
+<div class="t-role">CTO, SpeedLink ISP — Chittagong</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="stars">★★★★☆</div>
+<p class="t-text">"The ISP Dhaka support team helped us migrate our entire subscriber database with zero downtime. Highly recommended for Bangladesh ISPs."</p>
+<div class="t-author">
+<div class="t-av">MH</div>
+<div>
+<div class="t-name">Maliha Hasan</div>
+<div class="t-role">Manager, ConnectBD — Sylhet</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="login" style="display:flex;justify-content:center;padding:60px 16px">
+<div class="login-card" style="width:100%;max-width:460px">
+<div class="login-title">Welcome Back 👋</div>
+<div class="login-sub">Sign in to your ISP Dhaka account</div>
+<div class="f-wrap">
+<label class="f-label">Username / Email</label>
+<div class="f-inner">
+<span class="f-ico">👤</span>
+<input placeholder="you@example.com" type="text"/>
+</div>
+</div>
+<div class="f-wrap">
+<label class="f-label">Password</label>
+<div class="f-inner">
+<span class="f-ico">🔑</span>
+<input placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="opt-row">
+<label class="chk">
+<input type="checkbox"/> Remember me
+              </label>
+<a class="frgt" href="#">Forgot password?</a>
+</div>
+<button class="btn btn-primary btn-login" type="button">Sign In →</button>
+<div class="divider">
+<hr/><span>New customer?</span><hr/>
+</div>
+<button class="btn btn-reg" type="button">Create Free Account</button>
+</div>
+</section>
+<section class="cta" id="contact">
+<h2>Ready to Modernize Your ISP Business in Bangladesh?</h2>
+<p>Join 500+ ISPs already running smarter with ISP Dhaka billing software. Setup is fast and built specifically for Bangladesh ISP operations.</p>
+<div class="hero-actions" style="justify-content:center;margin-top:0">
+<a class="btn btn-soft" href="mailto:ispdhaka24@gmail.com" style="background:#fff;color:#c85510">Email Support</a>
+<a class="btn btn-soft" href="tel:+8801571545439">📞 Call Sales</a>
+</div>
+</section>
+<section class="cta" style="background:#4745e4">
+<h2>Get Started With Bangladesh's Best ISP Software</h2>
+<p>ISP Dhaka is your 24/7 ISP management &amp; billing support partner. Trusted by ISPs in Dhaka, Chittagong, Sylhet &amp; across Bangladesh.</p>
+<div class="hero-actions" style="justify-content:center;margin-top:0">
+<a class="btn btn-soft" href="mailto:support@ispdhaka.com" style="background:#fff;color:#217a05">Request a Free Demo</a>
+<a class="btn btn-primary" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support" target="_blank">💬 WhatsApp Support</a>
+</div>
+</section>
+<!-- Fixed WhatsApp Button -->
+<a href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20need%20support" style="position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;" target="_blank">
+<svg fill="white" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.789L0 32l8.418-2.004A15.938 15.938 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.788-1.858l-.486-.29-5.007 1.192 1.215-4.874-.317-.5A13.234 13.234 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.361-2.215-2.759-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.067-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.325s1.428 3.856 1.627 4.122c.199.266 2.81 4.29 6.808 6.017.951.411 1.694.656 2.273.839.955.304 1.824.261 2.511.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"></path>
+</svg>
+</a>
+</main>
+
+<section style="display:none">
+<h2>ISP Billing Software Bangladesh</h2>
+<p>
+ISP Dhaka provides the best ISP billing software, ISP management software, MikroTik billing automation,
+PPPoE management, hotspot billing, bKash payment integration, Nagad payment, subscriber management,
+bandwidth monitoring, SMS billing, BTRC report generation, and complete ISP automation solutions
+for Internet Service Providers in Bangladesh — Dhaka, Chittagong, Sylhet, Rajshahi and all districts.
+</p>
+</section>
+
+<!-- ===== BLOG SECTION ===== -->
+<section class="section" id="blog" style="padding-bottom:90px">
+  <div class="sec-head">
+    <div class="sec-eye">ISP Knowledge Hub — Bangladesh</div>
+    <h2 class="sec-title">ISP Billing &amp; Management Guides</h2>
+    <p class="sec-desc">Expert guides for Bangladesh ISP owners — learn how to automate billing, integrate MikroTik, manage subscribers, and grow your ISP business.</p>
+  </div>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:20px">
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">📡</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">MikroTik Billing</div>
+      <h3 style="font-size:1rem;line-height:1.4">How to Set Up MikroTik Billing Software for Bangladesh ISPs</h3>
+      <p style="font-size:.88rem">Step-by-step guide to integrating MikroTik RouterOS with ISP billing — PPPoE, hotspot, radius server, and auto provisioning for Bangladesh ISP businesses.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">💳</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">bKash Integration</div>
+      <h3 style="font-size:1rem;line-height:1.4">bKash &amp; Nagad Payment Integration for ISP Billing in Bangladesh</h3>
+      <p style="font-size:.88rem">How to accept bKash, Nagad, and Rocket payments directly in your ISP billing software — automatic payment verification and subscriber activation for Bangladesh ISPs.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">📋</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">BTRC Compliance</div>
+      <h3 style="font-size:1rem;line-height:1.4">BTRC Report Generation for Bangladesh ISPs — Complete Guide</h3>
+      <p style="font-size:.88rem">Automate your BTRC subscriber report and compliance reporting directly from your ISP management software. Save hours of manual work every month.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">📊</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">ISP Management</div>
+      <h3 style="font-size:1rem;line-height:1.4">Best ISP Management Software for Small ISPs in Bangladesh 2025</h3>
+      <p style="font-size:.88rem">Comparing the top ISP management software options for small and medium ISP businesses in Bangladesh — features, pricing, and what to look for.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">📱</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">SMS Billing</div>
+      <h3 style="font-size:1rem;line-height:1.4">How to Automate ISP SMS Billing &amp; Due Date Reminders in Bangladesh</h3>
+      <p style="font-size:.88rem">Reduce unpaid bills with automated SMS billing reminders. Learn how to set up bulk SMS alerts for due dates, package expiry, and low balance for ISP subscribers.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="icon">🚀</div>
+      <div style="font-size:.72rem;color:var(--or2);font-weight:900;letter-spacing:.1em;text-transform:uppercase">ISP Growth</div>
+      <h3 style="font-size:1rem;line-height:1.4">How to Grow Your ISP Business in Bangladesh — Subscriber Management Tips</h3>
+      <p style="font-size:.88rem">Proven strategies for Bangladesh ISP owners to grow subscriber count, reduce churn, automate operations, and increase monthly revenue with smart ISP software.</p>
+      <a class="btn btn-soft" href="#" style="margin-top:auto;font-size:.82rem;padding:10px 16px;border-color:var(--borderOr);color:var(--or2)">Read Article →</a>
+    </div>
+
+  </div>
+</section>
+<!-- ===== END BLOG SECTION ===== -->
+<footer class="footer">
+        © 2026 <a href="http://ispdhaka.com">ispdhaka.com</a> — #1 ISP Billing &amp; Management Software in Bangladesh | MikroTik Billing | bKash ISP Payment | Subscriber Management
+      </footer>
+</div>
+<script>
+      /* ===== NAVBAR SCROLL HIDE / SHOW (slide right) ===== */
+      (function () {
+        const wrap = document.getElementById('navbarWrap');
+        const hero = document.querySelector('.hero');
+
+        // Dynamically set hero padding so navbar never covers content
+        function setHeroPadding() {
+          const navH = wrap.offsetHeight;
+          hero.style.paddingTop = (navH + 24) + 'px';
+        }
+        setHeroPadding();
+        window.addEventListener('resize', setHeroPadding);
+
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        let appearTimer = null;
+
+        function handleScroll() {
+          const currentY = window.scrollY;
+          const atTop = currentY <= 10;
+
+          if (atTop) {
+            wrap.classList.remove('nav-hidden');
+            wrap.classList.add('nav-visible');
+            clearTimeout(appearTimer);
+            wrap.classList.add('nav-appearing');
+            appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
+
+          } else if (currentY > lastScrollY + 6) {
+            // Scrolling DOWN — fly off to the right
+            wrap.classList.add('nav-hidden');
+            wrap.classList.remove('nav-visible', 'nav-appearing');
+
+          } else if (currentY < lastScrollY - 6) {
+            // Scrolling UP — slide in from right
+            wrap.classList.remove('nav-hidden');
+            wrap.classList.add('nav-visible');
+            clearTimeout(appearTimer);
+            wrap.classList.add('nav-appearing');
+            appearTimer = setTimeout(() => wrap.classList.remove('nav-appearing'), 700);
+          }
+
+          lastScrollY = currentY;
+          ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(handleScroll);
+            ticking = true;
+          }
+        }, { passive: true });
+      })();
+      /* ===== END NAVBAR SCROLL ===== */
+
+      /* ===== NETWORK CANVAS ===== */
+      const canvas = document.getElementById("net-canvas"), ctx = canvas.getContext("2d");
+      let W, H, nodes = [], edges = [], packets = [], frame = 0;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        buildNetwork();
+      }
+
+      function buildNetwork() {
+        nodes = []; edges = []; packets = [];
+        const count = Math.max(42, Math.floor(W * H / 26000));
+        for (let i = 0; i < count; i++) {
+          nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, p: Math.random() * Math.PI * 2 });
+        }
+        for (let i = 0; i < nodes.length; i++) {
+          let distances = [];
+          for (let j = 0; j < nodes.length; j++) {
+            if (i !== j) {
+              const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+              distances.push([j, d]);
+            }
+          }
+          distances.sort((a, b) => a[1] - b[1]);
+          distances.slice(0, 2).forEach(([j]) => {
+            const exists = edges.some(e => (e.a === i && e.b === j) || (e.a === j && e.b === i));
+            if (!exists) edges.push({ a: i, b: j });
+          });
+        }
+      }
+
+      function spawnPacket() {
+        if (!edges.length) return;
+        const e = edges[Math.floor(Math.random() * edges.length)];
+        packets.push({ e, rev: Math.random() < .5, t: 0, speed: .006 + Math.random() * .01, size: 2 + Math.random() * 2.5 });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach(n => {
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > W) n.vx *= -1;
+          if (n.y < 0 || n.y > H) n.vy *= -1;
+          n.x += Math.sin(frame * .004 + n.p) * .08;
+          n.y += Math.cos(frame * .004 + n.p) * .08;
+        });
+        edges.forEach(e => {
+          const a = nodes[e.a], b = nodes[e.b], d = Math.hypot(a.x - b.x, a.y - b.y),
+            alpha = Math.max(.08, Math.min(.32, 1 - d / 360));
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(240,112,32,${alpha})`; ctx.lineWidth = 1.15; ctx.stroke();
+        });
+        packets = packets.filter(p => {
+          p.t += p.speed;
+          if (p.t >= 1) return false;
+          const a = nodes[p.rev ? p.e.b : p.e.a], b = nodes[p.rev ? p.e.a : p.e.b],
+            x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t,
+            g = ctx.createRadialGradient(x, y, 0, x, y, p.size * 5);
+          g.addColorStop(0, "rgba(255,147,64,.9)"); g.addColorStop(1, "rgba(255,147,64,0)");
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, p.size * 5, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(x, y, p.size, 0, Math.PI * 2); ctx.fill();
+          return true;
+        });
+        nodes.forEach(n => {
+          ctx.beginPath(); ctx.arc(n.x, n.y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255,255,255,.74)"; ctx.fill();
+          ctx.beginPath(); ctx.arc(n.x, n.y, 6, 0, Math.PI * 2);
+          ctx.strokeStyle = "rgba(240,112,32,.24)"; ctx.lineWidth = 1; ctx.stroke();
+        });
+        if (frame % 8 === 0 && packets.length < 85) spawnPacket();
+        frame++;
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+      draw();
+    </script>
+</body>
+</html>
