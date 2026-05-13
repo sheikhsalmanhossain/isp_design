@@ -566,6 +566,110 @@
         font-weight:900;
         margin-right:8px
       }
+      /* ---- New plan card styles ---- */
+      .plan-tier-label {
+        display:inline-block;
+        font-size:.7rem;
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:.1em;
+        padding:5px 14px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.18);
+        color:var(--text2);
+        margin-bottom:14px;
+        background:rgba(255,255,255,.06)
+      }
+      .plan-tier-premium {
+        background:rgba(99,255,180,.1);
+        border-color:rgba(99,255,180,.35);
+        color:#6effb4
+      }
+      .plan-tier-vvip {
+        background:rgba(168,85,247,.15);
+        border-color:rgba(168,85,247,.45);
+        color:#c084fc
+      }
+      .plan-name {
+        font-family:'Outfit',sans-serif;
+        font-size:1.9rem;
+        font-weight:900;
+        margin-bottom:8px;
+        color:var(--text)
+      }
+      .plan-tagline {
+        font-size:.85rem;
+        color:var(--muted);
+        line-height:1.55;
+        margin-bottom:0
+      }
+      .plan-divider {
+        height:1px;
+        background:var(--border);
+        margin:18px 0
+      }
+      .plan-section-label {
+        font-size:.65rem;
+        font-weight:900;
+        letter-spacing:.12em;
+        text-transform:uppercase;
+        color:var(--muted);
+        margin-bottom:10px;
+        margin-top:16px
+      }
+      .plan-section-label:first-of-type { margin-top:0 }
+      .ai-label { color:#a78bfa }
+      .branding-label { color:#c084fc }
+      .not-inc-label { color:#f87171 }
+      .plan-feats-no li:before { content:"✕"; color:#f87171 }
+      .plan-feats-ai li:before { content:"✦"; color:#a78bfa }
+      .plan-feats-wl li:before { content:"★"; color:#c084fc }
+      .plan-gateways {
+        display:flex;
+        flex-wrap:wrap;
+        gap:7px;
+        margin-bottom:4px
+      }
+      .gw-badge {
+        display:inline-flex;
+        align-items:center;
+        gap:5px;
+        padding:5px 10px;
+        border-radius:8px;
+        font-size:.72rem;
+        font-weight:800;
+        border:1px solid rgba(255,255,255,.12);
+        background:rgba(255,255,255,.06)
+      }
+      .gw-logo {
+        height:14px;
+        width:auto;
+        object-fit:contain;
+        filter:brightness(1.15)
+      }
+      .gw-svg { height:14px; width:auto; display:inline-block; vertical-align:middle }
+      .gw-bkash { border-color:rgba(224,0,83,.35); background:rgba(224,0,83,.1); color:#ff6ba3 }
+      .gw-nagad { border-color:rgba(240,130,0,.35); background:rgba(240,130,0,.1); color:#ffb347 }
+      .gw-ssl { border-color:rgba(0,150,80,.35); background:rgba(0,150,80,.1); color:#4ade80 }
+      .plan-vvip {
+        border:1.5px solid rgba(168,85,247,.35);
+        box-shadow:0 24px 70px rgba(168,85,247,.12)
+      }
+      .btn-vvip {
+        background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);
+        color:#fff;
+        box-shadow:0 12px 28px rgba(168,85,247,.28)
+      }
+      .plans-footnote {
+        text-align:center;
+        margin-top:36px;
+        font-size:.82rem;
+        color:var(--muted);
+        line-height:1.7;
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto
+      }
       .testi-grid {
         grid-template-columns:repeat(3,1fr)
       }
@@ -874,99 +978,147 @@ YouTube
 <section class="section" id="plans">
 <div class="sec-head">
 <div class="sec-eye">ISP Software Pricing — Bangladesh</div>
-<h2 class="sec-title">ISP Billing Software Plans for Every ISP</h2>
+<h2 class="sec-title">ISP Billing Platform Subscription Plans</h2>
 <p class="sec-desc">
-              Affordable ISP management software pricing for Bangladesh ISPs — from small broadband operators to large ISPs. WhatsApp us for details.
+              Choose the right plan for your ISP. All plans include core billing, customers, invoices &amp; payments.
             </p>
 </div>
 <div class="grid plans-grid">
+
+<!-- BASIC -->
 <div class="card plan-card">
-<div class="plan-tier">Starter</div>
-<div class="plan-price"><sup>৳</sup>1,499<small>/mo</small></div>
+<div class="plan-tier-label">Basic</div>
+<div class="plan-name">Basic</div>
+<p class="plan-tagline">Everything you need to run a small ISP and get paid.</p>
+<div class="plan-divider"></div>
+<div class="plan-section-label">CORE (ALWAYS ON)</div>
 <ul class="plan-feats">
-<li>Admin Login Panel</li>
-<li>Employee Login Panel</li>
-<li>Service Plans &amp; Packages</li>
-<li>Customer Management</li>
-<li>Accounts Management</li>
-<li>Billing &amp; Invoice Generation</li>
-<li>Payment Collection &amp; Tracking</li>
-<li>Due Date &amp; Late Fee Management</li>
-<li>Service Activation &amp; Suspension</li>
-<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
-<li>BTRC report generation</li>
+<li>Dashboard &amp; analytics</li>
+<li>Customer management (PPPoE, Hotspot, Static)</li>
+<li>Invoice generation (monthly, auto)</li>
+<li>Due clients list</li>
+<li>Packages management</li>
+<li>MikroTik server integration</li>
+<li>Zones management</li>
+<li>Bandwidth cost calculator</li>
+<li>Basic settings</li>
 </ul>
-<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Starter%20Plan%20(%E2%9C%B11%2C499%2Fmo).%20Please%20share%20details." target="_blank">Choose Starter</a>
+<div class="plan-section-label">PAYMENT GATEWAYS</div>
+<div class="plan-gateways">
+<span class="gw-badge gw-bkash"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#E2136E"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">bKash</text></svg>bKash</span>
+<span class="gw-badge gw-nagad"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#F05A28"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">Nagad</text></svg>Nagad</span>
+<span class="gw-badge gw-ssl"><svg class="gw-svg" viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="22" rx="4" fill="#1A6B3A"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="9" fill="white">SSLCommerz</text></svg>SSLCommerz</span>
 </div>
+<div class="plan-section-label not-inc-label">NOT INCLUDED</div>
+<ul class="plan-feats plan-feats-no">
+<li>SMS notifications</li>
+<li>Resellers (MAC / BW)</li>
+<li>Employees</li>
+<li>AI features</li>
+<li>Accounting module</li>
+</ul>
+<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Basic%20Plan.%20Please%20share%20details." target="_blank">Get Basic</a>
+</div>
+
+<!-- STANDARD -->
+<div class="card plan-card">
+<div class="plan-tier-label">Standard</div>
+<div class="plan-name">Standard</div>
+<p class="plan-tagline">Growing ISPs that need more control and staff access.</p>
+<div class="plan-divider"></div>
+<div class="plan-section-label">EVERYTHING IN BASIC, PLUS</div>
+<ul class="plan-feats">
+<li>Employees (staff accounts)</li>
+<li>MAC Reseller management</li>
+<li>SMS notifications (payment &amp; due reminders)</li>
+<li>Payment History page</li>
+<li>Activity Log (employee &amp; reseller)</li>
+<li>Support Tickets</li>
+<li>Bulk CSV customer import</li>
+<li>OLT server monitoring</li>
+<li>MikroTik auto-backup</li>
+<li>BTRC DIS Report</li>
+<li>Bandwidth cost calculator</li>
+</ul>
+<div class="plan-section-label">PAYMENT GATEWAYS</div>
+<div class="plan-gateways">
+<span class="gw-badge gw-bkash"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#E2136E"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">bKash</text></svg>bKash</span>
+<span class="gw-badge gw-nagad"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#F05A28"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">Nagad</text></svg>Nagad</span>
+<span class="gw-badge gw-ssl"><svg class="gw-svg" viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="22" rx="4" fill="#1A6B3A"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="9" fill="white">SSLCommerz</text></svg>SSLCommerz</span>
+</div>
+<div class="plan-section-label not-inc-label">NOT INCLUDED</div>
+<ul class="plan-feats plan-feats-no">
+<li>BW Reseller management</li>
+<li>AI features</li>
+<li>Accounting module</li>
+<li>Customer &amp; network map</li>
+</ul>
+<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Standard%20Plan.%20Please%20share%20details." target="_blank">Get Standard</a>
+</div>
+
+<!-- PREMIUM -->
 <div class="card plan-card hot">
 <div class="hot-badge">Most Popular</div>
-<div class="plan-tier">Growth</div>
-<div class="plan-price"><sup>৳</sup>3,499<small>/mo</small></div>
+<div class="plan-tier-label plan-tier-premium">Premium</div>
+<div class="plan-name">Premium</div>
+<p class="plan-tagline">Full-scale ISP operations with AI insights and reseller ecosystem.</p>
+<div class="plan-divider"></div>
+<div class="plan-section-label">EVERYTHING IN STANDARD, PLUS</div>
 <ul class="plan-feats">
-<li>Admin Login Panel</li>
-<li>Employee Login Panel</li>
-<li>Service Plans &amp; Packages</li>
-<li>Customer Management</li>
-<li>Accounts Management</li>
-<li>Billing &amp; Invoice Generation</li>
-<li>Payment Collection &amp; Tracking</li>
-<li>Due Date &amp; Late Fee Management</li>
-<li>Service Activation &amp; Suspension</li>
-<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
-<li>BTRC report generation</li>
-<li>Bulk SMS System</li>
-<li>Payment Gateway (Bkash)</li>
-<li>Zone/Area management</li>
-<li>Support and Ticketing</li>
-<li>Bandwidth Reseller management</li>
-<li>Customer Support</li>
+<li>Bandwidth (BW) Reseller management</li>
+<li>Full Accounting module (ledger, charts)</li>
+<li>Inventory management</li>
+<li>Customer map &amp; network diagram</li>
+<li>Scheduled package changes</li>
+<li>OLT logs &amp; auto alerts</li>
+<li>Bandwidth cost calculator</li>
 </ul>
-<a class="btn btn-primary btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Growth%20Plan%20(%E2%9C%B13%2C499%2Fmo).%20Please%20share%20details." target="_blank">Choose Growth</a>
+<div class="plan-section-label ai-label">✦ AI FEATURES (EXCLUSIVE)</div>
+<ul class="plan-feats plan-feats-ai">
+<li>AI Revenue &amp; Loss Analysis</li>
+<li>AI Revenue Leakage Detector</li>
+<li>AI Customer Churn Prediction</li>
+</ul>
+<div class="plan-section-label">PAYMENT GATEWAYS</div>
+<div class="plan-gateways">
+<span class="gw-badge gw-bkash"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#E2136E"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">bKash</text></svg>bKash</span>
+<span class="gw-badge gw-nagad"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#F05A28"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">Nagad</text></svg>Nagad</span>
+<span class="gw-badge gw-ssl"><svg class="gw-svg" viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="22" rx="4" fill="#1A6B3A"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="9" fill="white">SSLCommerz</text></svg>SSLCommerz</span>
 </div>
-<div class="card plan-card">
-<div class="plan-tier">Pro</div>
-<div class="plan-price"><sup>৳</sup>4,999<small>/mo</small></div>
+<a class="btn btn-primary btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Premium%20Plan.%20Please%20share%20details." target="_blank">Get Premium</a>
+</div>
+
+<!-- WHITE LABEL -->
+<div class="card plan-card plan-vvip">
+<div class="plan-tier-label plan-tier-vvip">VVIP</div>
+<div class="plan-name">White Label</div>
+<p class="plan-tagline">Your brand, your software. Complete identity for your ISP business.</p>
+<div class="plan-divider"></div>
+<div class="plan-section-label">EVERYTHING IN PREMIUM, PLUS</div>
 <ul class="plan-feats">
-<li>Admin Login Panel</li>
-<li>Employee Login Panel</li>
-<li>Service Plans &amp; Packages</li>
-<li>Customer Management</li>
-<li>Accounts Management</li>
-<li>Billing &amp; Invoice Generation</li>
-<li>Payment Collection &amp; Tracking</li>
-<li>Due Date &amp; Late Fee Management</li>
-<li>Service Activation &amp; Suspension</li>
-<li>MikroTik integration (Backup, Health Dashboard, Restore Customer)</li>
-<li>BTRC report generation</li>
-<li>Bulk SMS System</li>
-<li>Payment Gateway (Bkash)</li>
-<li>Zone/Area management</li>
-<li>Support and Ticketing</li>
-<li>Bandwidth Reseller management</li>
-<li>MikroTik integration (One Click Move Customer)</li>
-<li>MAC Reseller Panel</li>
-<li>Customer Map</li>
-<li>Inventory Management</li>
-<li>Custom branded portal</li>
-<li>Unlimited subscribers</li>
-<li>Custom branding</li>
-<li>24/7 support</li>
+<li>Bandwidth cost calculator</li>
 </ul>
-<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Pro%20Plan%20(%E2%9C%B16%2C999%2Fmo).%20Please%20share%20details." target="_blank">Choose Pro</a>
-</div>
-<div class="card plan-card">
-<div class="plan-tier">Enterprise</div>
-<div class="plan-price">Custom</div>
-<ul class="plan-feats">
-<li>Multi-zone management</li>
-<li>On-premise deployment</li>
-<li>Custom integrations</li>
-<li>Dedicated manager</li>
-<li>Training &amp; onboarding</li>
+<div class="plan-section-label branding-label">◈ FULL WHITE-LABEL BRANDING</div>
+<ul class="plan-feats plan-feats-wl">
+<li>Custom company logo on login &amp; header</li>
+<li>Custom app name (replaces "ISP Billing System")</li>
+<li>Custom domain (e.g. billing.yourISP.com)</li>
+<li>Branded login page per ISP domain</li>
+<li>Company website URL in system</li>
+<li>No platform watermark</li>
+<li>Priority support</li>
 </ul>
-<a class="btn btn-soft btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20Enterprise%20Plan%20(Custom%20Pricing).%20Please%20contact%20me%20with%20details." target="_blank">Contact Sales</a>
+<div class="plan-section-label">PAYMENT GATEWAYS</div>
+<div class="plan-gateways">
+<span class="gw-badge gw-bkash"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#E2136E"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">bKash</text></svg>bKash</span>
+<span class="gw-badge gw-nagad"><svg class="gw-svg" viewBox="0 0 60 22" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="22" rx="4" fill="#F05A28"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="white">Nagad</text></svg>Nagad</span>
+<span class="gw-badge gw-ssl"><svg class="gw-svg" viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="22" rx="4" fill="#1A6B3A"/><text x="50%" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="9" fill="white">SSLCommerz</text></svg>SSLCommerz</span>
 </div>
+<a class="btn btn-vvip btn-login" href="https://wa.me/8801571545439?text=Hello%20ISP%20Dhaka%2C%20I%20am%20interested%20in%20the%20White%20Label%20Plan.%20Please%20share%20details." target="_blank">Get White Label</a>
 </div>
+
+</div>
+<p class="plans-footnote">All plans include auto-disconnect on due date, auto-reconnect after payment, and PPPoE / Hotspot / Static support · bKash · Nagad · SSLCommerz payment gateways included in every plan.</p>
 </section>
 <section class="section" id="reviews">
 <div class="sec-head">
