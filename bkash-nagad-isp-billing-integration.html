@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4725750559595668"></script>
+<title>bKash &amp; Nagad Payment Integration for ISP Billing in Bangladesh | ISP Dhaka</title>
+<meta content="Learn how to integrate bKash, Nagad and Rocket into your ISP billing software — automatic payment verification, instant subscriber activation, and reconciliation for Bangladesh ISPs." name="description"/>
+<meta content="ISP billing, ISP billing software Bangladesh, bKash ISP billing, Nagad billing software, bKash payment gateway integration, ISP billing system Bangladesh, mobile financial services ISP, broadband billing software, internet bill payment bKash, ISP payment automation" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="ISP Dhaka" name="author"/>
+<meta content="bKash &amp; Nagad Payment Integration for ISP Billing in Bangladesh" property="og:title"/>
+<meta content="How to accept bKash, Nagad, and Rocket payments directly inside ISP billing software, with automatic verification and instant activation." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Nunito:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0 }
+  :root {
+    --surface:rgba(17,24,39,.76);
+    --border:rgba(255,255,255,.11);
+    --borderOr:rgba(240,112,32,.36);
+    --or:#f07020;
+    --or2:#ff9340;
+    --or-dk:#c85510;
+    --text:#f8fafc;
+    --text2:#cbd5e1;
+    --muted:#94a3b8;
+    --green:#22c55e;
+    --shadow:0 28px 70px rgba(0,0,0,.28)
+  }
+  html { scroll-behavior:smooth }
+  body {
+    font-family:'Nunito',sans-serif;
+    background:radial-gradient(circle at 18% 12%,rgba(240,112,32,.22),transparent 35%),radial-gradient(circle at 82% 20%,rgba(255,147,64,.13),transparent 30%),linear-gradient(135deg,#0f172a,#111827 55%,#15111f);
+    color:var(--text);
+    min-height:100vh
+  }
+  h1,h2,h3 { font-family:'Outfit',sans-serif; font-weight:900 }
+  p { color:var(--text2); line-height:1.8 }
+  a { color:var(--or2); text-decoration:none }
+  .page { width:min(880px,calc(100% - 30px)); margin:0 auto }
+  .navbar {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 0
+  }
+  .brand { display:flex; align-items:center; gap:12px; color:var(--text) }
+  .logo-dot {
+    width:14px; height:14px; border-radius:50%;
+    background:linear-gradient(135deg,var(--or),var(--or2));
+    box-shadow:0 0 14px rgba(240,112,32,.7)
+  }
+  .brand-name { font-family:'Outfit',sans-serif; font-weight:900; font-size:1.15rem }
+  .brand-name span { color:var(--or2) }
+  .back-link {
+    font-size:.85rem; font-weight:700; padding:9px 16px;
+    border:1px solid var(--border); border-radius:999px;
+    background:var(--surface); backdrop-filter:blur(12px)
+  }
+  .back-link:hover { border-color:var(--borderOr) }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--or2); font-weight:700; margin-bottom:14px
+  }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--or) }
+  h1.title {
+    font-size:clamp(1.7rem,4vw,2.5rem);
+    line-height:1.18; margin-bottom:18px
+  }
+  .meta {
+    display:flex; gap:18px; flex-wrap:wrap;
+    color:var(--muted); font-size:.85rem; margin-bottom:22px
+  }
+  .toc {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:16px; padding:20px 24px; margin-bottom:28px
+  }
+  .toc-title { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:700 }
+  .toc ol { margin:0 0 0 20px; color:var(--text2) }
+  .toc li { margin-bottom:6px; font-size:.92rem }
+  .toc a { color:var(--text2) }
+  .toc a:hover { color:var(--or2) }
+  article {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:22px; padding:clamp(22px,4vw,48px);
+    backdrop-filter:blur(18px); box-shadow:var(--shadow)
+  }
+  article h2 {
+    font-size:1.4rem; margin:36px 0 14px; color:var(--text);
+    display:flex; align-items:center; gap:10px
+  }
+  article h2:first-child { margin-top:0 }
+  article h2::before {
+    content:""; width:5px; height:22px; border-radius:3px;
+    background:linear-gradient(180deg,var(--or),var(--or2));
+    display:inline-block
+  }
+  article h3 { font-size:1.08rem; margin:22px 0 10px; color:var(--or2) }
+  article p { margin-bottom:16px; font-size:1.02rem }
+  article ul, article ol { margin:0 0 18px 22px; color:var(--text2) }
+  article li { margin-bottom:10px; line-height:1.7 }
+  article code {
+    background:rgba(240,112,32,.14); color:var(--or2);
+    padding:2px 7px; border-radius:6px; font-size:.9em
+  }
+  table.gw {
+    width:100%; border-collapse:collapse; margin:18px 0 24px;
+    font-size:.92rem
+  }
+  table.gw th, table.gw td {
+    border:1px solid var(--border); padding:10px 12px; text-align:left;
+    color:var(--text2)
+  }
+  table.gw th { color:var(--or2); background:rgba(240,112,32,.08) }
+  .callout {
+    border-left:4px solid var(--or); background:rgba(240,112,32,.08);
+    padding:16px 20px; border-radius:10px; margin:22px 0
+  }
+  .callout p { margin:0; color:var(--text2) }
+  .callout strong { color:var(--or2) }
+  .related-box {
+    margin:28px 0; padding:18px 20px; border-radius:14px;
+    background:rgba(255,255,255,.03); border:1px solid var(--border);
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap
+  }
+  .related-box .tag {
+    font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); font-weight:700; white-space:nowrap
+  }
+  .related-box a { font-weight:700 }
+  .ad-banner-wrap {
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    margin:38px 0
+  }
+  .ad-banner-label {
+    font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted)
+  }
+  .ad-banner-box {
+    width:100%; min-height:90px;
+    background:rgba(255,255,255,.03); border:1px solid var(--border);
+    border-radius:16px; display:flex; align-items:center; justify-content:center;
+    overflow:hidden
+  }
+  .faq-item { border-top:1px solid var(--border); padding:16px 0 }
+  .faq-item:first-child { border-top:none }
+  .faq-item h3 { margin:0 0 8px; font-size:1rem; color:var(--text) }
+  .faq-item p { margin:0; font-size:.95rem }
+  .cta-block {
+    margin-top:40px; padding:26px; border-radius:16px;
+    background:linear-gradient(135deg,rgba(240,112,32,.16),rgba(255,147,64,.06));
+    border:1px solid var(--borderOr); text-align:center
+  }
+  .cta-block h3 { font-size:1.2rem; margin-bottom:8px }
+  .cta-block p { margin-bottom:18px }
+  .btn-primary {
+    display:inline-block; padding:12px 26px; border-radius:999px;
+    background:linear-gradient(135deg,var(--or),var(--or2)); color:#fff;
+    font-weight:800; font-size:.92rem
+  }
+  footer {
+    text-align:center; color:var(--muted); font-size:.82rem;
+    padding:40px 0 60px
+  }
+  footer a { color:var(--muted) }
+  @media (max-width:640px) {
+    .navbar { flex-direction:column; gap:14px; align-items:flex-start }
+    table.gw { font-size:.82rem }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "bKash & Nagad Payment Integration for ISP Billing in Bangladesh",
+  "description": "How to accept bKash, Nagad, and Rocket payments directly in ISP billing software — automatic payment verification and subscriber activation for Bangladesh ISPs.",
+  "author": { "@type": "Organization", "name": "ISP Dhaka" },
+  "publisher": { "@type": "Organization", "name": "ISP Dhaka" },
+  "mainEntityOfPage": "https://ispdhaka.com/bkash-nagad-isp-billing-integration.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can ISP billing software accept bKash payments automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ISP billing software can integrate the bKash Merchant Payment API so that when a customer pays their internet bill, the payment is verified automatically and their connection is reactivated without staff involvement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which mobile financial services can be integrated into ISP billing in Bangladesh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common gateways for ISP billing in Bangladesh are bKash, Nagad, and SSLCommerz (which also covers Rocket, cards, and bank transfers through a single integration)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is bKash integration safe for ISP billing systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, provided the ISP billing software uses the official bKash Merchant/PGW API with signed callbacks and does not store raw bKash credentials. Payment verification should always happen server-side, not from data sent by the customer's browser."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="page">
+<nav class="navbar">
+<a class="brand" href="index.html">
+<span class="logo-dot"></span>
+<span class="brand-name">ISP <span>Dhaka</span></span>
+</a>
+<a class="back-link" href="index.html#blog">← Back to ISP Dhaka</a>
+</nav>
+
+<div class="eyebrow"><span class="dot"></span> ISP Billing · Payment Integration Guide</div>
+<h1 class="title">bKash &amp; Nagad Payment Integration for ISP Billing in Bangladesh</h1>
+<div class="meta">
+<span>By ISP Dhaka Team</span>
+<span>·</span>
+<span>Updated July 2026</span>
+<span>·</span>
+<span>8 min read</span>
+</div>
+
+<div class="toc">
+<div class="toc-title">In this guide</div>
+<ol>
+<li><a href="#why">Why ISP billing in Bangladesh depends on MFS</a></li>
+<li><a href="#gateways">bKash vs Nagad vs Rocket for ISP billing</a></li>
+<li><a href="#how-it-works">How automatic payment verification works</a></li>
+<li><a href="#setup">Setting up bKash in your ISP billing software</a></li>
+<li><a href="#reconciliation">Reconciliation and avoiding double payments</a></li>
+<li><a href="#mistakes">Common mistakes ISPs make</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</div>
+
+<article>
+
+<p>Search "<strong>ISP billing</strong>" in Bangladesh and payment collection is almost always the first pain point ISPs bring up — not because collecting money is hard, but because collecting it <em>without a human manually checking each transaction</em> is. Nearly every residential and small-business customer in Bangladesh pays with bKash or Nagad rather than a bank transfer, so any serious <strong>ISP billing software</strong> has to treat mobile financial services (MFS) as the default payment method, not an add-on. This guide covers exactly how that integration works, from the customer tapping "pay" to their connection being restored automatically.</p>
+
+<h2 id="why">Why ISP billing in Bangladesh depends on MFS</h2>
+<p>Bangladesh has one of the highest mobile financial services adoption rates in South Asia, and bKash alone processes tens of millions of transactions a month. For an ISP, this means the overwhelming majority of subscriber payments — bill payments, renewals, and reconnection fees — arrive through bKash or Nagad rather than cash at an office or a bank deposit slip. An <strong>ISP billing system</strong> that doesn't handle these gateways natively forces staff to manually cross-check mobile banking SMS notifications against a customer list every single day, which is slow, error-prone, and doesn't scale past a few hundred subscribers.</p>
+
+<h2 id="gateways">bKash vs Nagad vs Rocket for ISP billing</h2>
+<p>Each gateway has a slightly different integration path, and a good ISP billing platform should support all three without forcing you to pick just one:</p>
+<table class="gw">
+<tr><th>Gateway</th><th>Integration type</th><th>Best for</th></tr>
+<tr><td>bKash</td><td>Merchant/PGW API (Tokenized Checkout)</td><td>Highest market share; most customers already have it</td></tr>
+<tr><td>Nagad</td><td>Merchant API with signed callback</td><td>Growing fast, competitive transaction fees</td></tr>
+<tr><td>Rocket &amp; cards</td><td>Via SSLCommerz aggregator</td><td>Covers Rocket, bank cards, and net banking through one integration</td></tr>
+</table>
+<p>Most ISP billing software in Bangladesh, including ISP Dhaka, integrates bKash and Nagad directly and adds SSLCommerz as a single gateway that covers everything else — so a customer sees a simple "Pay Now" button with all their preferred options, without the ISP needing three separate merchant accounts wired into three separate systems.</p>
+
+<h2 id="how-it-works">How automatic payment verification works</h2>
+<p>The core of ISP billing payment automation is a webhook — a small notification the payment gateway sends to your billing server the moment a transaction completes. The flow looks like this:</p>
+<ol>
+<li>The customer opens their bill in the ISP's customer portal or gets a payment link via SMS.</li>
+<li>They complete the payment inside the bKash or Nagad app.</li>
+<li>The gateway sends a signed webhook to the ISP billing server confirming the transaction ID and amount.</li>
+<li>The billing software verifies the signature and transaction ID against the gateway's own API — never trusting the amount blindly from the webhook alone.</li>
+<li>Once verified, the customer's invoice is marked paid and, if they were disconnected, their MikroTik profile is restored automatically. (See our guide on <a href="mikrotik-billing-setup-guide.html">setting up MikroTik billing integration</a> for how that restore step works under the hood.)</li>
+</ol>
+<p>This whole sequence typically completes in under 10 seconds from payment to reconnection — fast enough that most customers never even need to contact support.</p>
+
+<div class="callout">
+<p><strong>Security note:</strong> Never verify a payment based only on data returned to the customer's browser after checkout. Always re-confirm the transaction status directly with the gateway's server-side API using the transaction ID, since browser-side data can be manipulated.</p>
+</div>
+
+<h2 id="setup">Setting up bKash in your ISP billing software</h2>
+<p>If you're configuring bKash integration yourself rather than using a platform that has it built in, the setup generally involves:</p>
+<ul>
+<li><strong>Registering as a bKash merchant</strong> and getting your App Key, App Secret, Username, and Password for the Tokenized Checkout API.</li>
+<li><strong>Whitelisting your callback URL</strong> with bKash so payment confirmations reach your billing server.</li>
+<li><strong>Storing credentials securely</strong> — encrypted at rest, never in plain text config files, and never exposed to the frontend.</li>
+<li><strong>Testing on bKash's sandbox environment</strong> before going live, including testing failed and cancelled payment scenarios, not just successful ones.</li>
+<li><strong>Setting a webhook subscription</strong> so bKash notifies your server directly instead of relying only on the customer completing a redirect back to your site — this matters because customers sometimes close the app before the redirect finishes, and without a webhook that payment would never get recorded.</li>
+</ul>
+
+<div class="ad-banner-wrap">
+<div class="ad-banner-label">Advertisement</div>
+<div class="ad-banner-box">
+<ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-4725750559595668" data-ad-slot="ZZZZZZZZZZ" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<h2 id="reconciliation">Reconciliation and avoiding double payments</h2>
+<p>A subtle but important part of ISP billing is reconciliation — matching every gateway transaction against exactly one invoice, so nothing gets recorded twice and nothing gets missed. Two things prevent the most common problems:</p>
+<h3>Idempotent transaction handling</h3>
+<p>If a webhook is delivered twice (which happens more often than you'd expect on unstable mobile networks), the billing system should recognize the transaction ID has already been processed and simply ignore the duplicate rather than crediting the customer's account twice.</p>
+<h3>Daily settlement matching</h3>
+<p>At the end of each day, a good ISP billing system should be able to pull a settlement report directly from bKash/Nagad and cross-check it against recorded payments, flagging any mismatch for manual review rather than letting small discrepancies quietly accumulate over a month.</p>
+
+<h2 id="mistakes">Common mistakes ISPs make</h2>
+<ul>
+<li><strong>Relying only on customer-facing redirect confirmation</strong> instead of a server-to-server webhook — leads to "paid but still shows unpaid" complaints.</li>
+<li><strong>Hardcoding the webhook URL with a fixed port</strong> that breaks when the server configuration changes (a real issue ISP Dhaka fixed after finding <code>:8000</code> hardcoded in a settings page affecting every tenant on the platform).</li>
+<li><strong>Not separating gateway credentials per company</strong> on multi-tenant billing platforms, which risks one ISP's payments being misrouted to another's merchant account.</li>
+<li><strong>Skipping sandbox testing for failed payments</strong> — a system that only works for successful transactions will silently mishandle declined or cancelled ones in production.</li>
+</ul>
+
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq-item">
+<h3>Can ISP billing software accept bKash payments automatically?</h3>
+<p>Yes. ISP billing software integrates the bKash Merchant Payment API so that when a customer pays their internet bill, the payment is verified automatically and their connection is reactivated without staff involvement.</p>
+</div>
+<div class="faq-item">
+<h3>Which mobile financial services can be integrated into ISP billing in Bangladesh?</h3>
+<p>The most common gateways for ISP billing in Bangladesh are bKash, Nagad, and SSLCommerz, which also covers Rocket, bank cards, and net banking through a single integration.</p>
+</div>
+<div class="faq-item">
+<h3>Is bKash integration safe for ISP billing systems?</h3>
+<p>Yes, provided the ISP billing software uses the official bKash Merchant/PGW API with signed callbacks and verifies every transaction server-side rather than trusting data sent from the customer's browser.</p>
+</div>
+
+<div class="related-box">
+<span class="tag">Related guide</span>
+<a href="mikrotik-billing-setup-guide.html">How to Set Up MikroTik Billing Software for Bangladesh ISPs →</a>
+</div>
+
+<div class="cta-block">
+<h3>Get bKash, Nagad &amp; SSLCommerz built into your ISP billing</h3>
+<p>ISP Dhaka's billing platform comes with bKash, Nagad, and SSLCommerz payment collection out of the box, with automatic verification and instant reconnection on every plan.</p>
+<a class="btn-primary" href="index.html#plans">View Pricing Plans</a>
+</div>
+
+</article>
+
+<footer>
+  © 2026 <a href="index.html">ispdhaka.com</a> — #1 ISP Billing &amp; Management Software in Bangladesh
+</footer>
+</div>
+</body>
+</html>
