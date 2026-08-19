@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4725750559595668"></script>
+<title>BTRC Report Generation for Bangladesh ISPs — Complete Guide | ISP Dhaka</title>
+<meta content="How Bangladesh ISPs can automate BTRC subscriber and compliance reporting directly from their ISP billing software, and avoid the most common reporting mistakes." name="description"/>
+<meta content="BTRC report Bangladesh, BTRC compliance ISP, BTRC subscriber report, BTRC DIS report, ISP billing software BTRC, ISP compliance Bangladesh, BTRC license ISP, BTRC reporting automation, ISP billing software, ISP software, billing software, RADIUS server ISP" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="ISP Dhaka" name="author"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Nunito:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0 }
+  :root {
+    --surface:rgba(17,24,39,.76);
+    --border:rgba(255,255,255,.11);
+    --borderOr:rgba(240,112,32,.36);
+    --or:#f07020;
+    --or2:#ff9340;
+    --or-dk:#c85510;
+    --text:#f8fafc;
+    --text2:#cbd5e1;
+    --muted:#94a3b8;
+    --green:#22c55e;
+    --shadow:0 28px 70px rgba(0,0,0,.28)
+  }
+  html { scroll-behavior:smooth }
+  body {
+    font-family:'Nunito',sans-serif;
+    background:radial-gradient(circle at 18% 12%,rgba(240,112,32,.22),transparent 35%),radial-gradient(circle at 82% 20%,rgba(255,147,64,.13),transparent 30%),linear-gradient(135deg,#0f172a,#111827 55%,#15111f);
+    color:var(--text);
+    min-height:100vh
+  }
+  h1,h2,h3 { font-family:'Outfit',sans-serif; font-weight:900 }
+  p { color:var(--text2); line-height:1.8 }
+  a { color:var(--or2); text-decoration:none }
+  .page { width:min(880px,calc(100% - 30px)); margin:0 auto }
+  .navbar { display:flex; align-items:center; justify-content:space-between; padding:22px 0 }
+  .brand { display:flex; align-items:center; gap:12px; color:var(--text) }
+  .logo-dot { width:14px; height:14px; border-radius:50%; background:linear-gradient(135deg,var(--or),var(--or2)); box-shadow:0 0 14px rgba(240,112,32,.7) }
+  .brand-name { font-family:'Outfit',sans-serif; font-weight:900; font-size:1.15rem }
+  .brand-name span { color:var(--or2) }
+  .back-link { font-size:.85rem; font-weight:700; padding:9px 16px; border:1px solid var(--border); border-radius:999px; background:var(--surface); backdrop-filter:blur(12px) }
+  .back-link:hover { border-color:var(--borderOr) }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--or2); font-weight:700; margin-bottom:14px }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--or) }
+  h1.title { font-size:clamp(1.7rem,4vw,2.5rem); line-height:1.18; margin-bottom:18px }
+  .meta { display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:.85rem; margin-bottom:22px }
+  .toc { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px 24px; margin-bottom:28px }
+  .toc-title { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:700 }
+  .toc ol { margin:0 0 0 20px; color:var(--text2) }
+  .toc li { margin-bottom:6px; font-size:.92rem }
+  .toc a { color:var(--text2) }
+  .toc a:hover { color:var(--or2) }
+  article { background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:clamp(22px,4vw,48px); backdrop-filter:blur(18px); box-shadow:var(--shadow) }
+  article h2 { font-size:1.4rem; margin:36px 0 14px; color:var(--text); display:flex; align-items:center; gap:10px }
+  article h2:first-child { margin-top:0 }
+  article h2::before { content:""; width:5px; height:22px; border-radius:3px; background:linear-gradient(180deg,var(--or),var(--or2)); display:inline-block }
+  article h3 { font-size:1.08rem; margin:22px 0 10px; color:var(--or2) }
+  article p { margin-bottom:16px; font-size:1.02rem }
+  article ul, article ol { margin:0 0 18px 22px; color:var(--text2) }
+  article li { margin-bottom:10px; line-height:1.7 }
+  article code { background:rgba(240,112,32,.14); color:var(--or2); padding:2px 7px; border-radius:6px; font-size:.9em }
+  .callout { border-left:4px solid var(--or); background:rgba(240,112,32,.08); padding:16px 20px; border-radius:10px; margin:22px 0 }
+  .callout p { margin:0; color:var(--text2) }
+  .callout strong { color:var(--or2) }
+  .related-box { margin:28px 0; padding:18px 20px; border-radius:14px; background:rgba(255,255,255,.03); border:1px solid var(--border); display:flex; align-items:center; gap:14px; flex-wrap:wrap }
+  .related-box .tag { font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; white-space:nowrap }
+  .related-box a { font-weight:700 }
+  .ad-banner-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; margin:38px 0 }
+  .ad-banner-label { font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted) }
+  .ad-banner-box { width:100%; min-height:90px; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center; overflow:hidden }
+  .cta-block { margin-top:40px; padding:26px; border-radius:16px; background:linear-gradient(135deg,rgba(240,112,32,.16),rgba(255,147,64,.06)); border:1px solid var(--borderOr); text-align:center }
+  .cta-block h3 { font-size:1.2rem; margin-bottom:8px }
+  .cta-block p { margin-bottom:18px }
+  .btn-primary { display:inline-block; padding:12px 26px; border-radius:999px; background:linear-gradient(135deg,var(--or),var(--or2)); color:#fff; font-weight:800; font-size:.92rem }
+  footer { text-align:center; color:var(--muted); font-size:.82rem; padding:40px 0 60px }
+  footer a { color:var(--muted) }
+  @media (max-width:640px) { .navbar { flex-direction:column; gap:14px; align-items:flex-start } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "BTRC Report Generation for Bangladesh ISPs — Complete Guide",
+  "description": "How Bangladesh ISPs can automate BTRC subscriber and compliance reporting directly from their ISP billing software.",
+  "author": { "@type": "Organization", "name": "ISP Dhaka" },
+  "publisher": { "@type": "Organization", "name": "ISP Dhaka" },
+  "mainEntityOfPage": "https://ispdhaka.com/btrc-report-generation-guide.html"
+}
+</script>
+</head>
+<body>
+<div class="page">
+<nav class="navbar">
+<a class="brand" href="index.html">
+<span class="logo-dot"></span>
+<span class="brand-name">ISP <span>Dhaka</span></span>
+</a>
+<a class="back-link" href="index.html#blog">← Back to ISP Dhaka</a>
+</nav>
+
+<div class="eyebrow"><span class="dot"></span> BTRC Compliance · Bangladesh ISP Guide</div>
+<h1 class="title">BTRC Report Generation for Bangladesh ISPs — Complete Guide</h1>
+<div class="meta">
+<span>By ISP Dhaka Team</span>
+<span>·</span>
+<span>Updated July 2026</span>
+<span>·</span>
+<span>7 min read</span>
+</div>
+
+<div class="toc">
+<div class="toc-title">In this guide</div>
+<ol>
+<li><a href="#why">Why BTRC reporting matters for ISP licensing</a></li>
+<li><a href="#what">What goes into a BTRC subscriber report</a></li>
+<li><a href="#manual">Why manual BTRC reporting breaks down as you grow</a></li>
+<li><a href="#automation">Automating BTRC reports from your ISP billing software</a></li>
+<li><a href="#mistakes">Common BTRC reporting mistakes</a></li>
+<li><a href="#checklist">Monthly compliance checklist</a></li>
+</ol>
+</div>
+
+<article>
+
+<p>Every licensed ISP in Bangladesh has a recurring obligation that has nothing to do with routers or bandwidth: reporting subscriber and network data to the Bangladesh Telecommunication Regulatory Commission (BTRC). For ISPs still tracking this manually in spreadsheets, it's one of the most tedious parts of running the business — and one of the easiest to get wrong. This guide covers what BTRC reporting actually requires and how to automate it directly from your ISP billing software instead of rebuilding the report by hand every month.</p>
+
+<h2 id="why">Why BTRC reporting matters for ISP licensing</h2>
+<p>BTRC issues and renews ISP operating licenses in Bangladesh, and ongoing compliance reporting is part of the condition for keeping that license active. This isn't a one-time filing — it's a recurring obligation, and ISPs are expected to maintain accurate, up-to-date subscriber records that can be reported when required. Falling behind on reporting, or submitting inconsistent numbers month over month, creates unnecessary regulatory risk for a business that otherwise has nothing to worry about.</p>
+<p>For small and mid-sized ISPs especially, this reporting burden tends to fall on whoever is available — often the same person handling billing, support tickets, and network monitoring. That's exactly the kind of task that benefits from being pulled directly out of the billing system rather than recreated separately each month.</p>
+
+<h2 id="what">What goes into a BTRC subscriber report</h2>
+<p>While exact reporting formats can be updated by BTRC from time to time, the core of what's typically expected includes:</p>
+<ul>
+<li><strong>Active subscriber counts</strong> — broken down by connection type (PPPoE, hotspot, static IP) and by service area.</li>
+<li><strong>Subscriber identity and address details</strong> — matched against the KYC information collected at signup.</li>
+<li><strong>Package and bandwidth information</strong> — what speed tier each subscriber is on.</li>
+<li><strong>Connection status changes</strong> — new activations, disconnections, and suspensions over the reporting period.</li>
+<li><strong>Network infrastructure details</strong> — depending on license category, this can include POP locations, upstream bandwidth, and equipment details.</li>
+</ul>
+<p>The common thread across all of it: everything BTRC asks for already exists somewhere in your billing and subscriber database. The work isn't collecting new data — it's assembling data you already have into the specific format required.</p>
+
+<h2 id="manual">Why manual BTRC reporting breaks down as you grow</h2>
+<p>At 50–100 subscribers, exporting a spreadsheet and manually formatting a BTRC report once a month is annoying but manageable. Past a few hundred subscribers, several things start going wrong at once:</p>
+<ul>
+<li>Subscriber records drift out of sync — someone changes a package or address in the billing system but the change never makes it into the reporting spreadsheet.</li>
+<li>Manual exports miss recent activations or disconnections that happened close to the reporting deadline.</li>
+<li>Formatting inconsistencies creep in when different staff members prepare the report in different months.</li>
+<li>There's no audit trail — if a number in a past report is questioned, there's no easy way to show exactly what the subscriber base looked like on that date.</li>
+</ul>
+
+<div class="callout">
+<p><strong>The core problem:</strong> a spreadsheet-based BTRC report is a snapshot frozen at export time, disconnected from the live billing database. Any change after that export — a new customer, a cancelled connection — has to be manually re-added, which is exactly where errors creep in.</p>
+</div>
+
+<div class="ad-banner-wrap">
+<div class="ad-banner-label">Advertisement</div>
+<div class="ad-banner-box">
+<ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-4725750559595668" data-ad-slot="YYYYYYYYYY" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+</div>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<h2 id="automation">Automating BTRC reports from your ISP billing software</h2>
+<p>Since your billing system already holds live subscriber records, package assignments, and connection status, generating a compliant BTRC report is really a matter of querying that data directly rather than re-entering it elsewhere. A billing platform built for Bangladesh ISPs can generate this report on demand by pulling straight from the same database that runs your day-to-day billing — meaning the numbers in your BTRC report and the numbers in your billing dashboard always match, because they're the same underlying data.</p>
+<p>This also solves the drift problem from manual reporting: since the report is generated live rather than assembled from a frozen export, a customer who was disconnected yesterday is correctly reflected as disconnected today, without anyone needing to remember to update a separate file.</p>
+<h3>What to look for in ISP billing software</h3>
+<ul>
+<li>One-click BTRC report export in the format regulators expect, without manual reformatting</li>
+<li>Historical snapshots, so you can regenerate exactly what your subscriber base looked like on any past reporting date</li>
+<li>Automatic inclusion of zone/area breakdowns if your ISP operates across multiple service zones</li>
+<li>Export formats that match what your compliance team or accountant already works with (CSV, PDF)</li>
+</ul>
+
+<h2 id="mistakes">Common BTRC reporting mistakes</h2>
+<ul>
+<li><strong>Reporting active subscriber counts that don't match billing records</strong> — usually because disconnected customers weren't properly marked inactive in the system.</li>
+<li><strong>Missing the reporting deadline</strong> because the report has to be manually assembled each time rather than generated on demand.</li>
+<li><strong>Inconsistent subscriber address formatting</strong> across different staff members preparing reports in different months.</li>
+<li><strong>No backup of past submitted reports</strong> — if a discrepancy is ever questioned, there's no record of exactly what was submitted and when.</li>
+</ul>
+
+<h2 id="checklist">Monthly compliance checklist</h2>
+<ul>
+<li>Confirm all disconnections and new activations from the past month are correctly reflected in the billing system before generating the report.</li>
+<li>Cross-check subscriber counts in the report against your live dashboard numbers.</li>
+<li>Keep a dated copy of every submitted report for your own records, separate from what's sent to BTRC.</li>
+<li>Review any BTRC format or requirement updates before the reporting deadline, since regulatory formats can change.</li>
+</ul>
+
+<div class="related-box">
+<span class="tag">Related guide</span>
+<a href="mikrotik-billing-setup-guide.html">How to Set Up MikroTik Billing Software for Bangladesh ISPs →</a>
+</div>
+
+<div class="cta-block">
+<h3>Generate BTRC reports in one click</h3>
+<p>ISP Dhaka's billing platform includes built-in BTRC DIS report generation, pulled live from your subscriber database — no manual spreadsheet work every month.</p>
+<a class="btn-primary" href="index.html#plans">View Pricing Plans</a>
+</div>
+
+</article>
+
+<footer>
+  © 2026 <a href="index.html">ispdhaka.com</a> — #1 ISP Billing &amp; Management Software in Bangladesh
+</footer>
+</div>
+</body>
+</html>
