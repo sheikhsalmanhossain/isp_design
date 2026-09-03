@@ -196,16 +196,6 @@
 <p>The real time-saver isn't just the on/off automation — it's package provisioning. Instead of manually creating a PPP profile in Winbox every time you launch a new package, a properly integrated billing system lets you define the package once (say, a 10 Mbps package at ৳800/month) and it automatically creates the matching PPPoE profile, including the speed limit via simple queues or PCQ, and the pool for IP assignment.</p>
 <p>When a new customer signs up for that package, the billing software creates their PPPoE secret directly on the router, assigns them to the correct profile, and they're online — no manual router work needed at all.</p>
 
-<div class="ad-banner-wrap">
-<div class="ad-banner-label">Advertisement</div>
-<div class="ad-banner-box">
-<ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-4725750559595668" data-ad-slot="YYYYYYYYYY" data-ad-format="auto" data-full-width-responsive="true"></ins>
-</div>
-</div>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <h2>Handling disconnection and reconnection correctly</h2>
 <p>This is where a lot of DIY integrations go wrong. The naive approach is to simply disable the PPPoE secret when a customer is overdue, and re-enable it when they pay. The problem: this loses any custom settings that were live on that connection, and it doesn't give you a way to show the customer a "please renew" message instead of just cutting them off completely.</p>
 <p>The more reliable pattern — the one billing platforms serving Bangladesh ISPs generally use — is to move the customer into a separate <strong>blocked profile</strong> rather than disabling the secret outright. This blocked profile can redirect all traffic to a small local page saying "Your package has expired — please recharge," which reduces support calls compared to a connection that just silently stops working. When the customer pays, they're moved back to their original package's live profile — not a recalculated one, but the exact profile they were on before, so nothing about their service changes except that it's active again.</p>
